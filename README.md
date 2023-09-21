@@ -16,4 +16,5 @@ TODO: Explain how I plan to implement each part of the technology stack
 * **Login** -
 * **WebSocket** -
 * **React** - 
+
 [Link to notes file](notes.md)
