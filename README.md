@@ -1,4 +1,4 @@
-# cs 260
+# Covenant Tracker
 ## Description Deliverable
 ### Elevator Pitch
 TODO: Write a compelling elevator pitch
