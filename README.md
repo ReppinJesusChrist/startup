@@ -10,8 +10,8 @@ TODO: Draw, scan, and insert a couple pictures of what the website might look li
 * Parter system which allows each user to see the goals of other at least one other user and provide encouragement
 * A point/currency system to reward users for the completion of goals
 * A "Social" section in which users can publicly share specific ideas about manageable ways to keep specific covenants or share personal experiences with keeping covenants and seeing the blessings of doing so
-* _Maybe_ A leaderboard to see how your efforts compare to those of others (Might encourage a kind of competition I don't want)
-* _Maybe_ A store to buy things with the points/currency earned from completing goals (Could be too work intensive to be practical, we'll see as the semester goes on)   
+* (_Maybe_) A leaderboard to see how your efforts compare to those of others (Might encourage a kind of competition I don't want)
+* (_Maybe_) A store to buy things with the points/currency earned from completing goals (Could be too work intensive to be practical, we'll see as the semester goes on)   
 ### Technologies
 * **HTML** - At least 5 different html pages: Login, Info, Goals/Tracking, Accountability, Social. Maybe a couple more. Also allows for links to external resources in the "Info" section     
 * **CSS** - Bright appealing color design, proper formatting on different screen sizes
