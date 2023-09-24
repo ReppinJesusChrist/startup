@@ -3,7 +3,7 @@
 ### Elevator Pitch
 Have you ever felt overwhelmed by all of the talk by general authorities in recent years about covenants? Have you ever found yourself wondering: "How am I supposed to respect and honor or even keep my covenants when I don't even really know what they are"? Let me introduce Covenant Companion, a website that allows you to learn about your covenants through conveniently compiled references, track your effort and progress in keeping them over time, and connect with others who are trying to do the same thing by sharing ideas and keeping each other accountable for setting and accomplishing goals.
 ### Design
-![alt text](https://github.com/ReppinJesusChrist/startup/blob/main/CCom_Sketch_pg1.pdf)
+![alt text](https://github.com/ReppinJesusChrist/startup/blob/main/CC_Sketch_1.png)
 ### Key Features
 * An info page with links to resources both from scripture and the words of modern prophets to provide information about the nature and details of each of the core covenants offered in the Church of Jesus Christ of Latter-Day Saints
 * Ability to set personalized goals based on effort
