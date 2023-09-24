@@ -13,7 +13,6 @@ TODO: Draw, scan, and insert a couple pictures of what the website might look li
 * _Maybe_ A leaderboard to see how your efforts compare to those of others (Might encourage a kind of competition I don't want)
 * _Maybe_ A store to buy things with the points/currency earned from completing goals (Could be too work intensive to be practical, we'll see as the semester goes on)   
 ### Technologies
-TODO: Explain how I plan to implement each part of the technology stack
 * **HTML** - At least 5 different html pages: Login, Info, Goals/Tracking, Accountability, Social. Maybe a couple more. Also allows for links to external resources in the "Info" section     
 * **CSS** - Bright appealing color design, proper formatting on different screen sizes
 * **JavaScript** - Used for login, input and interaction for choosing settings and setting specs for goals, and backend calls 
