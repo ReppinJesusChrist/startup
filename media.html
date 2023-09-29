@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+  <h2>Image</h2>
+  <img alt="Jesus Christ as  a Child" src="https://github.com/ReppinJesusChrist/testing-stuff/blob/main/Jesus%20Christ.webp?raw=true" width="500" height="400"/>
+
+  <h2>Audio</h2>
+  <audio controls src="https://github.com/ReppinJesusChrist/testing-stuff/blob/main/Unanswered%20Yet_.mp3?raw=true"></audio>
+
+  <h2>Video</h2>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/YRwQzKe-51o?si=Z6R1TKW77IxI9oNS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+  <h2>Canvas</h2>
+  <canvas id="canvasDemo" width="300" height="200" style="border: 1px solid #000000"></canvas>
+  <script>
+    const ctx = document.getElementById('canvasDemo').getContext('2d');
+    ctx.beginPath();
+    ctx.arc(150, 100, 50, 0, 2 * Math.PI);
+    ctx.fillStyle = 'blue';
+    ctx.strokeStyle = 'blue';
+    ctx.fill();
+    ctx.stroke();
+  </script>
+
+  <h2>SVG</h2>
+  <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" stroke="blue" fill="blue" style="border: 1px solid #000000">
+    <circle cx="150" cy="100" r="50" />
+  </svg>
+</html>
