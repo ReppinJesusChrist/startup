@@ -37,7 +37,7 @@ A concept sketch of the "Login" tab
 * **WebSocket** - Setting and completion of goals are broadcast to accountability partner/group, advice and experiences are broadcast to all users. Currency might also be broadcast if I decide to do a leaderboard
 * **React** - Application will be ported to use the React framework
 
-##HTML Deliverable
+## HTML Deliverable
 For this deliverable I made (most of) the skeleton of my website
 * HTML pages - Five HTML pages (3 fleshed out, 2 placeholders) that represent the home page, a login page, the page for setting goals, the page for accountability and tracking (unfinished), and the page for social interaction (unfinished)
 * Links - Each page links to every other page. There are also external links from the info page to other websites
