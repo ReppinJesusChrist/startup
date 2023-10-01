@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-  <head>
-    <meta charset="UTF-8" />
-    <!-- Tell browsers not to scale the viewport automatically -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simon HTML</title>
-    <link rel="icon" href="favicon.ico" />
-  </head>
+<html>
+  <body>
+    <head>
+      <meta charset="UTF-8" />
+      <!-- Tell browsers not to scale the viewport automatically -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Simon HTML</title>
+      <link rel="icon" href="favicon.ico" />
+    </head>
     <!-- Use header, main, and footer elements to give semantic structure -->
     <header>
       <h1>Covenant Companion</h1>
@@ -23,7 +25,31 @@
       <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
       <hr />
     </header>
-    <body>
-      <h2>Login</h2>
-    </body>
+
+    <main>   
+      <h2>Congrats!!! You found the Log-in page!</h2>
+      <h3>Log-in below to gain access to goal setting, point tracking, accountability
+        partners, and idea/experience sharing with other users
+      </h3>
+      <ul>
+        <li>
+          <!-- Includes validation-->
+          <label for="text">Username: </label>
+          <input type="text" id="text" name="varText" placeholder="Enter Username Here" 
+            required pattern="[Aa].*" />
+        </li>
+        <li>
+          <label for="password">Password: </label>
+          <input type="password" id="password" name="varPassword" placeholder="Enter Password"/>
+        </li>
+        <button type="submit">Login</button>
+        <p>New user? <button type="submit">Register</button></p>
+      </ul>
+    </main>
+
+    <footer>
+      <hr />
+      <div>My GitHub Repo:<span><a href="https://github.com/ReppinJesusChrist?tab=repositories">Click Here</a></span></div>
+    </footer>
+  </body>
 </html>

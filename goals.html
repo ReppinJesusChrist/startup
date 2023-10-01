@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-  <head>
-    <meta charset="UTF-8" />
-    <!-- Tell browsers not to scale the viewport automatically -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simon HTML</title>
-    <link rel="icon" href="favicon.ico" />
-  </head>
-    <!-- Use header, main, and footer elements to give semantic structure -->
+<html>
+  <body>
+    <head>
+      <meta charset="UTF-8" />
+      <!-- Tell browsers not to scale the viewport automatically -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Simon HTML</title>
+      <link rel="icon" href="favicon.ico" />
+    </head>
+      <!-- Use header, main, and footer elements to give semantic structure -->
     <header>
       <h1>Covenant Companion</h1>
       <nav>
@@ -23,7 +25,77 @@
       <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
       <hr />
     </header>
-    <body>
-      <h2>Goals</h2>
-    </body>
+
+    <main>
+      <h2>Welcome to Goals!</h2>
+      <h3>This is where you get to set goals to help you work toward being a 
+        better covenant disciple of 
+        Jesus Christ</h3>
+      <h4>Set a goal below to get started: just enter the details of what you hope to do, 
+        select a difficulty, check the box associated with the covenant(s) your goal pertains to,
+        then press submit.</h4>
+      <fieldset>
+        <legend>Set Goal</legend>
+        <fieldset>
+          <label for="textarea">Goal Description: </label>
+          <textarea id="textarea" name="varTextarea">(Example: Smile at a stranger today)</textarea>
+        </fieldset>
+        <fieldset> 
+          <legend>Difficulty</legend>
+          <label for="Difficulty1">Easy</label>
+          <input type="radio" id="Difficulty1" name="varDifficulty" value="easy" checked />
+          <label for="medium">Medium</label>
+          <input type="radio" id="medium" name="varDifficulty" value="medium" />
+          <label for="hard">Hard</label>
+          <input type="radio" id="hard" name="varDifficulty" value="hard" />
+        </fieldset>
+        <fieldset>
+          <legend>Select Covenant(s)</legend>
+          <label for="covSelect1">Baptism</label>
+          <input type="checkbox" id="covSelect1" name="varCovSelect" value="covSelect1" />
+          <label for="covSelect2">Sacrament</label>
+          <input type="checkbox" id="covSelect2" name="varCovSelect" value="covSelect2" />
+          <label for="covSelect3">Priesthood O&C</label>
+          <input type="checkbox" id="covSelect3" name="varCovSelect" value="covSelect3" />
+          <label for="covSelect4">Obedience</label>
+          <input type="checkbox" id="covSelect4" name="varCovSelect" value="covSelect4" />
+          <label for="covSelect5">Sacrifice</label>
+          <input type="checkbox" id="covSelect5" name="varCovSelect" value="covSelect5" />
+          <label for="covSelect6">the Gospel</label>
+          <input type="checkbox" id="covSelect6" name="varCovSelect" value="covSelect6" />
+          <label for="covSelect7">Chastity</label>
+          <input type="checkbox" id="covSelect7" name="varCovSelect" value="covSelect7" />
+          <label for="covSelect8">Consecration</label>
+          <input type="checkbox" id="covSelect8" name="varCovSelect" value="covSelect8" />
+        </fieldset>
+        <button type="submit">Set Goal!</button>
+      </fieldset>
+      <h3>Personal Goals</h3>
+      <table>
+        <tr>
+          <th>Goal Description</th>
+          <th>Date Set</th>
+          <th>Completion Date</th>
+        </tr>
+        <tr>
+          <td>Example Goal #1: Stop and remember Jesus Christ at least once today</td>
+          <td>09/29/23</td>
+          <td>09/30/23</td>
+        </tr>
+        <tr>
+          <td>Example Goal #2: Text my ministering assignments and offer to give them a priesthood blessing</td>
+          <td>09/26/23</td>
+          <td>
+            Not yet completed. <label for="markComplete1">Mark as Complete</label>
+            <input type="checkbox" id="markComplete1" name="goal.isComplete" value="markComplete1" />
+          </td>
+        </tr>
+      </table>
+    </main>
+
+    <footer>
+      <hr />
+      <div>My GitHub Repo:<span><a href="https://github.com/ReppinJesusChrist?tab=repositories">Click Here</a></span></div>
+    </footer>
+  </body>
 </html>
