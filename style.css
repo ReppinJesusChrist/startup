@@ -28,14 +28,21 @@ fieldset {
   justify-content: space-between;
 }
 
+form {  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @keyframes Title-in {
   from{
-    font-size: 0vh;
+    font-size: 0vw;
   }
   95% {
-    font-size: 10vh;
+    font-size: 8.5vw;
   }
   to {
-    font-size: 9.5vh;
+    font-size: 7.5vw;
   }
 }

@@ -3,54 +3,77 @@
   <body>
     <head>
       <meta charset="UTF-8" />
-      <!-- Tell browsers not to scale the viewport automatically -->
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Simon HTML</title>
+      <title>Covenant Companion</title>
       <link rel="icon" href="favicon.ico" />
+  
       <link rel="stylesheet" trype="text/css" href="style.css">
+      
+      <!--Include Bootstrap CSS framework-->
+      <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+      />
     </head>
+
     <!-- Use header, main, and footer elements to give semantic structure -->
-    <header>
-      <h1>Covenant Companion</h1>
-      <nav>
-        <!-- Menu at the top of the page -->
-        <menu class="inline">
-          <li><a href="index.html">Info</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="goals.html">Goals</a></li>
-          <li><a href="accountability.html">Accountability</a></li>
-          <li><a href="social.html">Social</a></li>
-        </menu>
-      </nav>
+    <body class="bg-dark text-light">
+      <header class="container-fluid">
+        <nav>
+          <h1>Covenant Companion</h1>
+          <!-- Menu at the top of the page -->
+          <menu class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Info</a>
+            </li>
+            <li>
+              <a class="nav-link active" href="login.html">Login</a>
+            </li>
+            <li>
+              <a class="nav-link" href="goals.html">Goals</a>
+            </li>
+            <li>
+              <a class="nav-link" href="accountability.html">Accountability</a>
+            </li>
+            <li>
+              <a class="nav-link" href="social.html">Social</a>
+            </li>
+          </menu>
+        </nav>
+  
+        <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
+        <hr />
+      </header>
 
-      <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
-      <hr />
-    </header>
-
-    <main>   
+    <main class="container-fluid bg-secondary text-center">   
       <h2>Congrats!!! You found the Log-in page!</h2>
       <h3>Log-in below to gain access to goal setting, point tracking, accountability
         partners, and idea/experience sharing with other users
       </h3>
-      <ul>
-        <li>
-          <!-- Includes validation-->
-          <label for="text">Username: </label>
-          <input type="text" id="text" name="varText" placeholder="Enter Username Here" 
-            required pattern="[Aa].*" />
-        </li>
-        <li>
-          <label for="password">Password: </label>
-          <input type="password" id="password" name="varPassword" placeholder="Enter Password"/>
-        </li>
-        <button type="submit">Login</button>
-        <p>New user? <button type="submit">Register</button></p>
-      </ul>
+
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">New User? Check box to register!</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Log-in/Register</button>
+      </form>
     </main>
 
     <footer>
       <hr />
-      <div>My GitHub Repo:<span><a href="https://github.com/ReppinJesusChrist?tab=repositories">Click Here</a></span></div>
+      <div>My GitHub Repo:<span><a href="https://github.com/ReppinJesusChrist/startup/">Click Here</a></span></div>
     </footer>
   </body>
 </html>
