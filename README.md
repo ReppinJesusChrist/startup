@@ -37,5 +37,15 @@ A concept sketch of the "Login" tab
 * **WebSocket** - Setting and completion of goals are broadcast to accountability partner/group, advice and experiences are broadcast to all users. Currency might also be broadcast if I decide to do a leaderboard
 * **React** - Application will be ported to use the React framework
 
+## HTML Deliverable
+For this deliverable I made (most of) the skeleton of my website
+* HTML pages - Five HTML pages (3 fleshed out, 2 placeholders) that represent the home page, a login page, the page for setting goals, the page for accountability and tracking (unfinished), and the page for social interaction (unfinished)
+* Links - Each page links to every other page. There are also external links from the info page to other websites
+* Text - Info page contains a lot of description, all other pages have guidance and informational text
+* Images - I actually do know how to do images but I waited until way too late to start this so I haven't added any yet. There will eventually be a picture by each of the covenant descriptions on the info page
+* Login - Text input boxes for username and password with buttons for "login" and "register"
+* Database - The goals in the "personal goals" section will be pulled from the database, as will the completion status and date
+* WebSocket - I didn't include this yet. It will occur under the accountability tab as a real-time indication of whether your partner has completed their goals, as well as encouraging messages sent from your team. It will also occur on the social page as a blog-style list of advice and testimonials from other users that show up in real-time as they are written and posted 
+
 
 [Link to notes file](notes.md)

@@ -1,0 +1,48 @@
+@import url('http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext');
+
+body {
+  background-color: grey;
+  column-rule: solid thick black;
+  font-family: 'Lato';
+}
+
+main {}
+
+h1 {
+  color: rgb(18, 182, 133);
+  text-align: center;
+
+  animation-name: Title-in;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+fieldset {
+  box-shadow: 2px 2px 2px gray;
+}
+
+.inline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+form {  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes Title-in {
+  from{
+    font-size: 0vw;
+  }
+  95% {
+    font-size: 8.5vw;
+  }
+  to {
+    font-size: 7.5vw;
+  }
+}
