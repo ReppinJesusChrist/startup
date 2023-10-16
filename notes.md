@@ -11,21 +11,45 @@
 * Command to deploy files to my website: ./deployFiles.sh -k ~/Keys/Remember\ Jesus\ Christ.pem -h covenantcompanion.click -s simon (This one works from gitBash)
 
 ## JavaScript
-### Log 
+### Console
+#### Log 
 `console.log('hello');`
-### Timer
+#### Timer
 ```javascript
 console.time('demo time');
 // ... some code that takes a long time.
 console.timeEnd('demo time');
 // OUTPUT: demo time: 9762.74 ms
 ```
-### Count:
+#### Count:
 ```javascript
 console.time('demo time');
 // ... some code that takes a long time.
 console.timeEnd('demo time');
 // OUTPUT: demo time: 9762.74 ms
 ```
-
+### Functions
+#### Example Function
+```javascript
+function sayHello() {
+  console.log('hello');
+}
+```
+### Including JS in html
+#### Example Code:
+```html
+<head>
+  <script src="javascript.js"></script>
+</head>
+<body>
+  <button onclick="sayHello()">Say Hello</button>
+  <button onclick="sayGoodbye()">Say Goodbye</button>
+  <button onclick="let i=1;i++;console.log(i)">press me</button>
+  <script>
+    function sayGoodbye() {
+      alert('Goodbye');
+    }
+  </script>
+</body>
+```
 [Back to README](README.md) 
