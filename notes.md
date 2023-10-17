@@ -52,4 +52,47 @@ function sayHello() {
   </script>
 </body>
 ```
-[Back to README](README.md) 
+### Type and Construct
+#### Variables
+* JS is weakly typed
+ * Variables don't need to be declared as a particular type
+ * Type can change very easily and often unpredictably
+* Two scopes =
+ * `let x = 1;` (allows for the variable to be changed later)
+ * `const y = 'y';` (prevents any future changes)
+* JavaScript defines several primitive types.
+
+| Type        | Meaning                                                    |
+| ----------- | ---------------------------------------------------------- |
+| `Null`      | The type of a variable that has not been assigned a value. |
+| `Undefined` | The type of a variable that has not been defined.          |
+| `Boolean`   | true or false.                                             |
+| `Number`    | A 64-bit signed number.                                    |
+| `BigInt`    | A number of arbitrary magnitude.                           |
+| `String`    | A textual sequence of characters.                          |
+| `Symbol`    | A unique value.                                            |
+* JS also has objects
+
+
+| Type       | Use                                                                                    | Example                  |
+| ---------- | -------------------------------------------------------------------------------------- | ------------------------ |
+| `Object`   | A collection of properties represented by name-value pairs. Values can be of any type. | `{a:3, b:'fish'}`        |
+| `Function` | An object that has the ability to be called.                                           | `function a() {}`        |
+| `Date`     | Calendar dates and times.                                                              | `new Date('1995-12-17')` |
+| `Array`    | An ordered sequence of any type.                                                       | `[3, 'fish']`            |
+| `Map`      | A collection of key-value pairs that support efficient lookups.                        | `new Map()`              |
+| `JSON`     | A lightweight data-interchange format used to share information across programs.       | `{"a":3, "b":"fish"}`    |
+
+#### Conditionals & Loops
+* if/else
+ * Can be the same as in C++
+ * Can also use ternary operator `a === 1 ? console.log(1) : console.log('not 1');`
+* while & do while
+ * Same as in C++, but i is defined with 'let' instead of a type
+* for
+ * Basic loops are the same
+ * for in `for(const name in obj)` iterates over an object (eg array)
+ * for of `for (const val of arr)` iterates over property values (**I don't understand this yet**)
+* break and continue
+ * Same as in C++
+
