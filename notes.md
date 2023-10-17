@@ -95,4 +95,12 @@ function sayHello() {
  * for of `for (const val of arr)` iterates over property values (**I don't understand this yet**)
 * break and continue
  * Same as in C++
-
+#### Strings
+| Function      | Meaning                                                      |
+| ------------- | ------------------------------------------------------------ |
+| length        | The number of characters in the string                       |
+| indexOf()     | The starting index of a given substring                      |
+| split()       | Split the string into an array on the given delimiter string |
+| startsWith()  | True if the string has a given prefix                        |
+| endsWith()    | True if the string has a given suffix                        |
+| toLowerCase() | Converts all characters to lowercase                         |
