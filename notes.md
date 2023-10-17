@@ -104,3 +104,16 @@ function sayHello() {
 | startsWith()  | True if the string has a given prefix                        |
 | endsWith()    | True if the string has a given suffix                        |
 | toLowerCase() | Converts all characters to lowercase                         |
+
+### Functions
+* Basic syntax `function functionname(parameters) { return returnval; }`
+#### Comparison to C++
+##### Similarities
+ * Default parameters are allowed
+ * void functions exist (they just aren't labled as such)
+##### Differences
+ * Return type doesn't need to be declared along with function (or ever actually because types don't exist in JS
+ * Functions can be an r-value!! (`const add = function (a,b) { return a + b ) };` is valid syntax!)
+ * Functions can be passed as parameters to other functions
+ * Functions can be declared inside of other functions!?
+  * This seems to me like a cheap way of avoiding the hassel of inheritance, but I'm not qualified to make that judgement yet
