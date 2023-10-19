@@ -151,7 +151,6 @@ function sayHello() {
   "end": null
 }
 ```
-* Info
  * Encoded with UTF-8 for global data
  * JSON.parse(json) converts a JSON file into a Javascript object
  * JSON.stringify(obj) converts js into a JSON file
