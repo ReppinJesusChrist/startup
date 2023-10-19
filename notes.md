@@ -154,7 +154,7 @@ function sayHello() {
  * Encoded with UTF-8 for global data
  * JSON.parse(json) converts a JSON file into a Javascript object
  * JSON.stringify(obj) converts js into a JSON file
-### Regular Expressions
+### Regular Expressions (More Study & Practice Needed)
 * Used to locate text in a string
   * Can use to identify
   * Can also use to perform operations on the located text
@@ -193,4 +193,36 @@ petRegex.test(text);
   const p = person(...['Ryan', 'Dahl']);
   console.log(p);
   // OUTPUT: {first: 'Ryan', last: 'Dahl'}
+  ```
+### Exceptions (Study and practice this more)
+* Should **ONLY** be used when something truly exceptional occurs. This makes my code easier to debug and makes my logs more meaningful and useful.
+* Basic format `try { // normal code } catch (err) { // exception handling code } finally { // always called code }`
+* Format for throwing errors: `throw new Error('connection error');`
+
+### Destructuring
+* Used to selectively pull elements out of a larger object
+* Two Examples:
+  ```javascript
+  const a = [1, 2, 4, 5];
+
+  // destructure the first two items from a, into the new variables b and c
+  const [b, c] = a;
+
+  console.log(b, c);
+  // OUTPUT: 1, 2
+  ```
+  ```javascript
+  const o = { a: 1, b: 'animals', c: ['fish', 'cats'] };
+
+  const { a, c } = o;
+
+  console.log(a, c);
+  // OUTPUT 1, ['fish', 'cats']
+  ```
+* This can be combined with rest syntax to destructure some items in an object and leave the rest grouped in an array:
+  ```javascript
+  const [b, c, ...others] = a;
+
+  console.log(b, c, others);
+  // OUTPUT: 1, 2, [4,5]
   ```
