@@ -85,16 +85,16 @@ function sayHello() {
 
 #### Conditionals & Loops
 * if/else
- * Can be the same as in C++
- * Can also use ternary operator `a === 1 ? console.log(1) : console.log('not 1');`
+  * Can be the same as in C++
+  * Can also use ternary operator `a === 1 ? console.log(1) : console.log('not 1');`
 * while & do while
- * Same as in C++, but i is defined with 'let' instead of a type
+  * Same as in C++, but i is defined with 'let' instead of a type
 * for
- * Basic loops are the same
- * for in `for(const name in obj)` iterates over an object (eg array)
- * for of `for (const val of arr)` iterates over property values (**I don't understand this yet**)
+  * Basic loops are the same
+  * for in `for(const name in obj)` iterates over an object (eg array)
+  * for of `for (const val of arr)` iterates over property values (**I don't understand this yet**)
 * break and continue
- * Same as in C++
+  * Same as in C++
 #### Strings
 | Function      | Meaning                                                      |
 | ------------- | ------------------------------------------------------------ |
@@ -110,9 +110,9 @@ function sayHello() {
 * Alternative basic syntax `functionname(function (parameters) { return returnval });
 * Arrow syntax (saves space) `functionname((parameters) => returnval);`
  * A couple examples
-  * `() => 3 // returns 3`
-  * `() => { 3; }; // returns undefined`
-  * `() => { return 3; }; // returns 3`
+   * `() => 3 // returns 3`
+   * `() => { 3; }; // returns undefined`
+   * `() => { return 3; }; // returns 3`
 #### Comparison to C++
 ##### Similarities
  * Default parameters are allowed
@@ -122,7 +122,7 @@ function sayHello() {
  * Functions can be an r-value!! (`const add = function (a,b) { return a + b ) };` is valid syntax!)
  * Functions can be passed as parameters to other functions
  * Functions can be declared inside of other functions!?
-  * This seems to me like a cheap way of avoiding the hassel of inheritance, but I'm not qualified to make that judgement yet
+   * This seems to me like a cheap way of avoiding the hassel of inheritance, but I'm not qualified to make that judgement yet
 ### Arrays
 | Function | Meaning                                                   | Example                       |
 | -------- | --------------------------------------------------------- | ----------------------------- |
@@ -154,3 +154,27 @@ function sayHello() {
  * Encoded with UTF-8 for global data
  * JSON.parse(json) converts a JSON file into a Javascript object
  * JSON.stringify(obj) converts js into a JSON file
+### Regular Expressions
+* Used to locate text in a string
+  * Can use to identify
+  * Can also use to perform operations on the located text
+    * replace()
+    * split()
+* Format examples
+```
+const objRegex = new RegExp('ab*', 'i');
+const literalRegex = /ab*/i;
+```
+```
+const petRegex = /(dog)|(cat)|(bird)/gim;
+const text = 'Both cats and dogs are pets, but not rocks.';
+
+text.match(petRegex);
+// RETURNS: ['cat', 'dog']
+
+text.replace(petRegex, 'animal');
+// RETURNS: Both animals and animals are pets, but not rocks.
+
+petRegex.test(text);
+// RETURNS: true
+```
