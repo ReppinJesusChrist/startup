@@ -11,6 +11,9 @@
 * Command to deploy files to my website: ./deployFiles.sh -k ~/Keys/Remember\ Jesus\ Christ.pem -h covenantcompanion.click -s simon (This one works from gitBash)
 
 ## JavaScript
+### Useful Functions
+* `numberParts.join("-");` (Adds a - between each element in an array and stringifies it)
+* `string.match(regEx)` compares a string with a regular expression
 ### Console
 #### Log 
 `console.log('hello');`
