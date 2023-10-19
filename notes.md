@@ -138,3 +138,20 @@ function sayHello() {
 | filter   | Run a function to remove items                            | `a.filter(i => i%2)`          |
 | every    | Run a function to test if all items match                 | `a.every(i => i < 3)`         |
 | some     | Run a function to test if any items match                 | `a.some(i => 1 < 1)`          |
+### JSON documents
+* Example
+```
+{
+  "class": {
+    "title": "web programming",
+    "description": "Amazing"
+  },
+  "enrollment": ["Marco", "Jana", "فَاطِمَة"],
+  "start": "2025-02-01",
+  "end": null
+}
+```
+* Info
+ * Encoded with UTF-8 for global data
+ * JSON.parse(json) converts a JSON file into a Javascript object
+ * JSON.stringify(obj) converts js into a JSON file
