@@ -178,3 +178,19 @@ text.replace(petRegex, 'animal');
 petRegex.test(text);
 // RETURNS: true
 ```
+### Rest and Spread
+#### Rest
+* Turns the last parameter of a function into a flexible parameter that accepts any number of values and combines them into an array
+* Format: `function testFunction(param1, ...restParam) { return returnVal; }`
+#### Spread
+* Does the opposite of rest - takes a compound object, expands it into individual parts, and assigns the parts to each of a function's parameters
+* Example:
+  ``` javascript
+  function person(firstName, lastName) {
+  return { first: firstName, last: lastName };
+  }
+
+  const p = person(...['Ryan', 'Dahl']);
+  console.log(p);
+  // OUTPUT: {first: 'Ryan', last: 'Dahl'}
+  ```
