@@ -18,6 +18,13 @@
 ### Useful Functions
 * `numberParts.join("-");` (Adds a - between each element in an array and stringifies it)
 * `string.match(regEx)` compares a string with a regular expression
+### Event Handlers
+* Types of Events
+  * Clipboard (Cut, Copied, Pasted)
+  * Focus (An element gets focus (What does that mean???))
+  * Keyboard (A key(/keys) are pressed)
+  * Mouse (Clicks)
+  * Test selection (When text is selected (Like options in Gospel Library?))
 ### Console
 #### Log 
 `console.log('hello');`
@@ -233,3 +240,14 @@ petRegex.test(text);
   console.log(b, c, others);
   // OUTPUT: 1, 2, [4,5]
   ```
+### Scope and this
+#### Scope
+1. **Global** - Visible to all code
+1. **Module** - Visible to all code running in a module
+1. **Function** - Visible within a function
+1. **Block** - Visible within a block of code delimited by curly braces
+
+#### This
+1. **Global** - When `this` is referenced outside a function or object it refers to the `globalThis` object. The globalThis object represents the context for runtime environment. For example, when running in a browser, globalThis refers to the browser's window object.
+1. **Function** - When `this` is referenced in a function it refers to the object that owns the function. That is either an object you defined or globalThis if the function is defined outside of an object. Note that when running is JavaScript strict mode, a global function's this variable is undefined instead of globalThis.
+1. **Object** - When `this` is referenced in a object it refers to the object.
