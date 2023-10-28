@@ -1,9 +1,15 @@
+function updatePage(){
+  checkNavbarUnlock();
+
+}
+
 function login() {
-  const emailEl     = document.querySelector("#email");
+  const usernameEl     = document.querySelector("#username");
   const passwordEl  = document.querySelector("#password");
   const registerEl  = document.querySelector("#register");
 
-  localStorage.setItem("username",  emailEl.value);
+
+  localStorage.setItem("username",  usernameEl.value);
   localStorage.setItem("password", passwordEl.value);
   localStorage.setItem("register", registerEl.checked);
   sessionStorage.setItem("isLoggedIn", true);
@@ -21,4 +27,8 @@ function checkNavbarUnlock() {
                         '<li class="nav-item"> <a class="nav-link" href="accountability.html">Accountability</a> </li>' +
                         '<li class="nav-item"> <a class="nav-link" href="social.html">Social</a></li>';
   }
+}
+
+function displayUsername() {
+  
 }
