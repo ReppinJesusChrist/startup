@@ -29,12 +29,14 @@ footer {
   text-align: center;
 }
 
-.main-page-title{
+/*
+#animated-header{
   animation-name: Title-in;
   animation-duration: 1.5s;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
 }
+*/
 
 fieldset {
   box-shadow: 2px 2px 2px gray;

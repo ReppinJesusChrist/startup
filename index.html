@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Covenant Companion</title>
-    <link rel="icon" href="favicon.ico" />
 
     <link rel="stylesheet" trype="text/css" href="style.css">
     
@@ -17,19 +16,21 @@
     />
   </head>
 
-  <body class="bg-dark text-light">
+  <body class="bg-dark text-light" onload="checkNavbarUnlock()">
     <header class="container-fluid">
-      <nav>
-        <h1 class = "main-page-title">Covenant Companion</h1>
-        <!-- Menu at the top of the page -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">Covenant Companion</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Covenant Companion</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" id="security-navmenu">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
@@ -37,179 +38,165 @@
                   <a class="nav-link" href="login.html">Login</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Pricing</a>
+                  <a class="nav-link disabled" href="goals.html" tabindex="-1" aria-disabled="true">Goals</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                  <a class="nav-link disabled" href="accountability.html" tabindex="-1" aria-disabled="true">Accountability</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="social.html" tabindex="-1" aria-disabled="true">Social</a>
                 </li>
               </ul>
             </div>
           </div>
-        </nav>
-
-
-        <menu class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">Info</a>
-          </li>
-          <li>
-            <a class="nav-link" href="goals.html">Goals</a>
-          </li>
-          <li>
-            <a class="nav-link" href="accountability.html">Accountability</a>
-          </li>
-          <li>
-            <a class="nav-link" href="social.html">Social</a>
-          </li>
-        </menu>
+        </div>
       </nav>
-
-      <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
-      <hr />
     </header>
 
-  <main class="container-fluid bg-secondary text-center">
-    <section>
-      <h2>Welcome to CovCom! We're glad you're here!</h2>
+    <main class="container-fluid bg-secondary text-center">
+      <section>
+        <h2>Welcome to CovCom! We're glad you're here!</h2>
 
-      <div>Browse the sections below to learn more about your covenants, 
-        or head over to the login page to sign-in or register and gain 
-        access to goal tracking and interaction with other aspiring covenant keepers</div>
+        <div>Browse the sections below to learn more about your covenants, 
+          or head over to the login page to sign-in or register and gain 
+          access to goal tracking and interaction with other aspiring covenant keepers</div>
 
-      <div id="quote" class="quote-box bg-light text-dark">
-          <p class="quote">"Anytime you do anything that helps anyone — on either side of the veil — take a step toward making covenants with God and receiving their essential baptismal and temple ordinances, you are helping to gather Israel. It is as simple as that."</p>
-          <p class="author">President Russell M. Nelson</p>
-      </div>
-    </section>
+        <div id="quote" class="quote-box bg-light text-dark">
+            <p class="quote">"Anytime you do anything that helps anyone — on either side of the veil — take a step toward making covenants with God and receiving their essential baptismal and temple ordinances, you are helping to gather Israel. It is as simple as that."</p>
+            <p class="author">President Russell M. Nelson</p>
+        </div>
+      </section>
 
-    <section>
-      <table class="table table-info table-striped table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">Covenant</th>
-            <th scope="col">Covenant Summary</th>
-            <th scope="col">Resource Links</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row" class="align-middle">Baptism</th>
-            <td class="align-middle">We promise to mourn with those that mourn, comfort those that stand
-              in need of comfort, and stand as witnesses of God at all times, in all 
-              things, and in all places that we may be in. In short, to serve God
-              for the rest of our lives.
-            </td>
-            <td><ul>
-              <li>The importance of baptism: <a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/31?lang=eng">(2 Nephi 31)</a></li>
-              <li>The covenant of baptism: <a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/18?lang=eng">(Mosiah 18)</a></li>
-              <li>Gospel Topics: <a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/baptism?lang=eng">Baptism</a></li>
-            </ul></td>
-          </tr>
-          <tr>
-            <th scope="row" class="align-middle">Sacrament</th>
-            <td class="align-middle">When the website is completed, this will contain a brief description of
-              the covenant listed above. Right now this is just filler text because I 
-              didn't plan enough time to find all of these references before the due
-              date for the html deliverable :(
-            </td>
-            <td><ul>
-              <li>Reference #1: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #1</a></li>
-              <li>Reference #2: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #2</a></li>
-              <li>Reference #3 <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #3</a></li>
-            </ul></td>
-          </tr>
-          <tr>
-            <th scope="row" class="align-middle">Priesthood Oath & Covenant</th>
-            <td class="align-middle">When the website is completed, this will contain a brief description of
-              the covenant listed above. Right now this is just filler text because I 
-              didn't plan enough time to find all of these references before the due
-              date for the html deliverable :(
-            </td>
-            <td><ul>
-              <li>Reference #1: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #1</a></li>
-              <li>Reference #2: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #2</a></li>
-              <li>Reference #3 <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #3</a></li>
-            </ul></td>
-          </tr>
-          <tr>
-            <th scope="row" class="align-middle">The Law of Obedience</th>
-            <td class="align-middle">When the website is completed, this will contain a brief description of
-              the covenant listed above. Right now this is just filler text because I 
-              didn't plan enough time to find all of these references before the due
-              date for the html deliverable :(
-            </td>
-            <td><ul>
-              <li>Reference #1: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #1</a></li>
-              <li>Reference #2: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #2</a></li>
-              <li>Reference #3 <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #3</a></li>
-            </ul></td>
-          </tr>
-          <tr>
-            <th scope="row" class="align-middle">The Law of Sacrifice</th>
-            <td class="align-middle">When the website is completed, this will contain a brief description of
-              the covenant listed above. Right now this is just filler text because I 
-              didn't plan enough time to find all of these references before the due
-              date for the html deliverable :(
-            </td>
-            <td><ul>
-              <li>Reference #1: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #1</a></li>
-              <li>Reference #2: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #2</a></li>
-              <li>Reference #3 <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #3</a></li>
-            </ul></td>
-          </tr>
-          <tr>
-            <th scope="row" class="align-middle">The Law of the Gospel</th>
-            <td class="align-middle">When the website is completed, this will contain a brief description of
-              the covenant listed above. Right now this is just filler text because I 
-              didn't plan enough time to find all of these references before the due
-              date for the html deliverable :(
-            </td>
-            <td><ul>
-              <li>Reference #1: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #1</a></li>
-              <li>Reference #2: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #2</a></li>
-              <li>Reference #3 <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #3</a></li>
-            </ul></td>
-          </tr>
-          <tr>
-            <th scope="row" class="align-middle">The Law of Chastity</th>
-            <td class="align-middle">When the website is completed, this will contain a brief description of
-              the covenant listed above. Right now this is just filler text because I 
-              didn't plan enough time to find all of these references before the due
-              date for the html deliverable :(
-            </td>
-            <td><ul>
-              <li>Reference #1: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #1</a></li>
-              <li>Reference #2: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #2</a></li>
-              <li>Reference #3 <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #3</a></li>
-            </ul></td>
-          </tr>
-          <tr>
-            <th scope="row" class="align-middle">The Law of Consecration</th>
-            <td class="align-middle">When the website is completed, this will contain a brief description of
-              the covenant listed above. Right now this is just filler text because I 
-              didn't plan enough time to find all of these references before the due
-              date for the html deliverable :(
-            </td>
-            <td><ul>
-              <li>Reference #1: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #1</a></li>
-              <li>Reference #2: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #2</a></li>
-              <li>Reference #3 <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #3</a></li>
-            </ul></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-    <img src="https://github.com/ReppinJesusChrist/testing-stuff/blob/main/Jesus%20Christ.webp?raw=true" class="img-fluid" alt="Responsive image">
-  </main>
+      <section>
+        <table class="table table-info table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Covenant</th>
+              <th scope="col">Covenant Summary</th>
+              <th scope="col">Resource Links</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="align-middle">Baptism</th>
+              <td class="align-middle">We promise to mourn with those that mourn, comfort those that stand
+                in need of comfort, and stand as witnesses of God at all times, in all 
+                things, and in all places that we may be in. In short, to serve God
+                for the rest of our lives.
+              </td>
+              <td><ul>
+                <li>The importance of baptism: <a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/31?lang=eng">(2 Nephi 31)</a></li>
+                <li>The covenant of baptism: <a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/18?lang=eng">(Mosiah 18)</a></li>
+                <li>Gospel Topics: <a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/baptism?lang=eng">Baptism</a></li>
+              </ul></td>
+            </tr>
+            <tr>
+              <th scope="row" class="align-middle">Sacrament</th>
+              <td class="align-middle">When the website is completed, this will contain a brief description of
+                the covenant listed above. Right now this is just filler text because I 
+                didn't plan enough time to find all of these references before the due
+                date for the html deliverable :(
+              </td>
+              <td><ul>
+                <li>Reference #1: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #1</a></li>
+                <li>Reference #2: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #2</a></li>
+                <li>Reference #3 <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #3</a></li>
+              </ul></td>
+            </tr>
+            <tr>
+              <th scope="row" class="align-middle">Priesthood Oath & Covenant</th>
+              <td class="align-middle">When the website is completed, this will contain a brief description of
+                the covenant listed above. Right now this is just filler text because I 
+                didn't plan enough time to find all of these references before the due
+                date for the html deliverable :(
+              </td>
+              <td><ul>
+                <li>Reference #1: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #1</a></li>
+                <li>Reference #2: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #2</a></li>
+                <li>Reference #3 <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #3</a></li>
+              </ul></td>
+            </tr>
+            <tr>
+              <th scope="row" class="align-middle">The Law of Obedience</th>
+              <td class="align-middle">When the website is completed, this will contain a brief description of
+                the covenant listed above. Right now this is just filler text because I 
+                didn't plan enough time to find all of these references before the due
+                date for the html deliverable :(
+              </td>
+              <td><ul>
+                <li>Reference #1: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #1</a></li>
+                <li>Reference #2: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #2</a></li>
+                <li>Reference #3 <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #3</a></li>
+              </ul></td>
+            </tr>
+            <tr>
+              <th scope="row" class="align-middle">The Law of Sacrifice</th>
+              <td class="align-middle">When the website is completed, this will contain a brief description of
+                the covenant listed above. Right now this is just filler text because I 
+                didn't plan enough time to find all of these references before the due
+                date for the html deliverable :(
+              </td>
+              <td><ul>
+                <li>Reference #1: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #1</a></li>
+                <li>Reference #2: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #2</a></li>
+                <li>Reference #3 <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #3</a></li>
+              </ul></td>
+            </tr>
+            <tr>
+              <th scope="row" class="align-middle">The Law of the Gospel</th>
+              <td class="align-middle">When the website is completed, this will contain a brief description of
+                the covenant listed above. Right now this is just filler text because I 
+                didn't plan enough time to find all of these references before the due
+                date for the html deliverable :(
+              </td>
+              <td><ul>
+                <li>Reference #1: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #1</a></li>
+                <li>Reference #2: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #2</a></li>
+                <li>Reference #3 <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #3</a></li>
+              </ul></td>
+            </tr>
+            <tr>
+              <th scope="row" class="align-middle">The Law of Chastity</th>
+              <td class="align-middle">When the website is completed, this will contain a brief description of
+                the covenant listed above. Right now this is just filler text because I 
+                didn't plan enough time to find all of these references before the due
+                date for the html deliverable :(
+              </td>
+              <td><ul>
+                <li>Reference #1: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #1</a></li>
+                <li>Reference #2: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #2</a></li>
+                <li>Reference #3 <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #3</a></li>
+              </ul></td>
+            </tr>
+            <tr>
+              <th scope="row" class="align-middle">The Law of Consecration</th>
+              <td class="align-middle">When the website is completed, this will contain a brief description of
+                the covenant listed above. Right now this is just filler text because I 
+                didn't plan enough time to find all of these references before the due
+                date for the html deliverable :(
+              </td>
+              <td><ul>
+                <li>Reference #1: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #1</a></li>
+                <li>Reference #2: <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #2</a></li>
+                <li>Reference #3 <a href="https://www.churchofjesuschrist.org/?lang=eng">Link #3</a></li>
+              </ul></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <img src="https://github.com/ReppinJesusChrist/testing-stuff/blob/main/Jesus%20Christ.webp?raw=true" class="img-fluid" alt="Responsive image">
+    </main>
 
-  <footer class="bg-dark text-white-50">
-    <hr />
-    <div>My GitHub Repo:<span><a href="https://github.com/ReppinJesusChrist/startup/">Click Here</a></span></div>
-  </footer>
-  <script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-  crossorigin="anonymous"
-  ></script>
+    <footer class="bg-dark text-white-50">
+      <hr />
+      <div>My GitHub Repo:<span><a href="https://github.com/ReppinJesusChrist/startup/">Click Here</a></span></div>
+    </footer>
+
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"
+    ></script>
+    <!--<script type="text/javascript" src="login.js"></script>-->
   </body>
 </html>
