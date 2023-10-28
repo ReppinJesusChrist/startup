@@ -23,10 +23,13 @@ footer {
   float: right;
 }
 
-h1 {
+.navbar-brand {
+  font-size: 7.5vw;
   color: rgb(18, 182, 133);
   text-align: center;
+}
 
+.main-page-title{
   animation-name: Title-in;
   animation-duration: 1.5s;
   animation-timing-function: ease-in;

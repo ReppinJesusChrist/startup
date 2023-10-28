@@ -16,6 +16,9 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
       />
+
+      <!--Include my own js file for testing-->
+      <script type="text/javascript" src="externalFunctionTester.js"></script>
     </head>
 
       <!-- Use header, main, and footer elements to give semantic structure -->
@@ -142,7 +145,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label"></label>
             <div class="col-md-4">
-              <button type="submit" class="btn-primary" >Send <span class="glyphicon glyphicon-send"></span></button>
+              <button type="submit" class="btn-primary" onclick="test()">Set Goal<span class="glyphicon glyphicon-send"></span></button>
             </div>
           </div>
         </div>
