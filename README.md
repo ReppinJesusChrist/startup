@@ -58,4 +58,13 @@ For this deliverable I finished the HTML skeleton for the last two pages on my s
 * **Application text content** - I imported a font and used it consistently throughout the website
 * **Application images** - I added an image (because I also missed that in my last deliverable) and used basic bootstrap styling to make it adjust with the window
 
+## JavaScript deliverable
+For this deliverable I used js to add basic functionality to the site, as well as laying the framework for storing and accessing data in the future. I also did a lot of cleaning up and expanding of the previous deliverables to make the site look nicer.
+
+* **Mocked Database Input** - This is not done yet. It will be implemented on the goals page, on which new goals that are set will be stored in the database based on the information filled out in the field when the "set goal" button is pushed
+*  **Username Display** - The username is read in from the login page, stored in local memory, and displayed at the top of each page. It is unique for each user of the site
+*  **Mocked Database DOM** - This is not done yet. It will be completed by collecting the input data from the goals out of localmemory and inserting it one <tr> at a time into the table at the bottom of the page. It will also show up on the social page, on which previous comments and advice from other users over the long-term will be visible
+*  **LocalStorage** - I use localstorage in several places throughout the code and intend to add it a couple more places. I also use sessionstorage for one variable.
+*  **Realtime Data** - This isn't done yet. It will be implemented by using exactly the same visuals that are already on the "Social" page, with the slight change that they will be set to a timer.
+
 [Link to notes file](notes.md)
