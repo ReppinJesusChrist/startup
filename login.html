@@ -16,7 +16,7 @@
     />
   </head>
   
-  <body class="bg-dark text-light" onload="checkNavbarUnlock()">
+  <body class="bg-dark text-light" onload="updatePage()">
     <header class="container-fluid">
       <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
@@ -59,7 +59,7 @@
         partners, and idea/experience sharing with other users
       </h3>
 
-      <form onsubmit="login()">
+      <form onsubmit="login()" class="bg-secondary">
         <div class="mb-3">
           <label for="username" class="form-label">Username</label>
           <input type="text" class="form-control" id="username">
