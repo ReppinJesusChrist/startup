@@ -1,7 +1,7 @@
 function updatePage(){
   checkNavbarUnlock();
   checkDisplayUsername();
-}
+} 
 
 function login() {
   const usernameEl  = document.querySelector("#username");
@@ -13,7 +13,8 @@ function login() {
   localStorage.setItem("password", passwordEl.value);
   localStorage.setItem("register", registerEl.checked);
   sessionStorage.setItem("isLoggedIn", true);
-  //window.location.href = "goals.html";
+
+  window.location.href = "goals.html";
 }
 
 function checkNavbarUnlock() {
@@ -32,7 +33,6 @@ function checkNavbarUnlock() {
 
 function checkDisplayUsername() {
   const displayName = localStorage.getItem("username");
-  console.log(localStorage.getItem(username));
   if(displayName){
     const headerEl = document.querySelector(".navbar-brand");
     headerEl.innerHTML = '<strong>Covenant Companion</strong> - Currently Logged-in as: ' + displayName;

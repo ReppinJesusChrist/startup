@@ -63,88 +63,95 @@
         then press submit.</h4>
       <form class="bg-secondary">
         <legend>Set Goal</legend>
-          <div class="form-group row">
-            <label for="goal-description" class="col-sm-2 col-form-label">Goal Description</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="goal-description">     
-              </div>
-          </div>
-        <!-- radio checks -->
-        <div class="form-group">
-          <label class="col-md-4 control-label">Select Goal Difficulty</label>
-          <div class="col-md-4">
-              <div class="radio">
-                  <label>
-                      <input type="radio" name="goal-difficulty" value="easy" checked/> Easy
-                  </label>
-                </div>
-              <div class="radio">
-                  <label>
-                      <input type="radio" name="goal-difficulty" value="medium" /> Medium
-                  </label>
-              </div>
-              <div class="radio">
-                <label>
-                    <input type="radio" name="goal-difficulty" value="hard" /> Hard
-                </label>
+        <div class="form-group row">
+          <label for="goal-description" class="col-sm-2 col-form-label">Goal Description</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="goal-description">     
             </div>
-          </div>
         </div>
-        <div>
-          <label class="col-md-4 control-label">Select Relevant Covenants</label>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-            <label class="form-check-label" for="">
-              Baptism
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck">
-            <label class="form-check-label" for="defaultCheck">
-              Sacrament
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck">
-            <label class="form-check-label" for="defaultCheck">
-              Priesthood Oath and Covenant
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck">
-            <label class="form-check-label" for="defaultCheck">
-              Obedience
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck">
-            <label class="form-check-label" for="defaultCheck">
-              Sacrifice
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck">
-            <label class="form-check-label" for="defaultCheck">
-              The Gospel
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck">
-            <label class="form-check-label" for="defaultCheck">
-              Chastity
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck">
-            <label class="form-check-label" for="defaultCheck">
-              Consecration
-            </label>
-          </div>
-          <div class="form-group">
-            <label class="col-md-4 control-label"></label>
-            <div class="col-md-4">
-              <button type="submit" class="btn-primary" onclick="test()">Set Goal<span class="glyphicon glyphicon-send"></span></button>
+        <fieldset class="form-group">
+          <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Select Goal Difficulty</legend>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="goal-difficulty" id="goal-radio-easy" value="easy" checked>
+                <label class="form-check-label" for="goal-radio-easy">
+                  Easy
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="goal-difficulty" id="goal-radio-medium" value="medium">
+                <label class="form-check-label" for="goal-radio-medium">
+                  Medium
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="goal-difficulty" id="goal-radio-hard" value="hard">
+                <label class="form-check-label" for="goal-radio-hard">
+                  Hard
+                </label>
+              </div>
             </div>
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+          <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Select Applicable Covenants</legend>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="baptism-checkbox" value="baptism">
+                <label class="form-check-label" for="baptism-checkbox">
+                  Baptism
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="sacrament-checkbox" value="sacrament">
+                <label class="form-check-label" for="sacrament-checkbox">
+                  Sacrament
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="priesthood-checkbox" value="priesthood">
+                <label class="form-check-label" for="priesthood-checkbox">
+                  Oath and Covenant of the Priesthood
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="obedience-checkbox" value="obedience" checked>
+                <label class="form-check-label" for="obedience-checkbox">
+                  Obedience
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="sacrifice-checkbox" value="sacrifice">
+                <label class="form-check-label" for="sacrifice-checkbox">
+                  Sacrifice
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="gospel-checkbox" value="gospel">
+                <label class="form-check-label" for="gospel-checkbox">
+                  The Gospel
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="chastity-checkbox" value="chastity">
+                <label class="form-check-label" for="chastity-checkbox">
+                  Chastity
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="consecration-checkbox" value="consecration">
+                <label class="form-check-label" for="consecration-checkbox">
+                  Consecration
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Create Goal</button>
           </div>
         </div>
       </form>
