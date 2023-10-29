@@ -66,5 +66,6 @@ For this deliverable I used js to add basic functionality to the site, as well a
 *  **Mocked Database DOM** - This is not done yet. It will be completed by collecting the input data from the goals out of localmemory and inserting it one <tr> at a time into the table at the bottom of the page. It will also show up on the social page, on which previous comments and advice from other users over the long-term will be visible
 *  **LocalStorage** - I use localstorage in several places throughout the code and intend to add it a couple more places. I also use sessionstorage for one variable.
 *  **Realtime Data** - This isn't done yet. It will be implemented by using exactly the same visuals that are already on the "Social" page, with the slight change that they will be set to a timer.
+*  **Login Security** - This wasn't actually on the list, but I spent a lot of time on it and I'm happy with how it turned out so I'm including it here. There is fronted security based on the login form. All pages besides "info", and "login" will be greyed out and unclickable in the main menu until the user logs in. It seems like a small thing and it will probably become obsolete soon enough but I learned a lot about JS by implementing it and put a lot of work into it.
 
 [Link to notes file](notes.md)
