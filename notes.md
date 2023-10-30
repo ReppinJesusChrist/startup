@@ -10,9 +10,6 @@
 * Command to ssh into my website: `ssh -i \Users\User\Keys/"Remember Jesus Christ.pem" ubuntu@ec2-35-174-69-205.compute-1.amazonaws.com`
 * Command to deploy files to my website: `./deployFiles.sh -k ~/Keys/Remember\ Jesus\ Christ.pem -h covenantcompanion.click -s simon` (This one works from gitBash)
 
-## HTTP
-
-
 ## html
 ### Syntax Reference:
 ![alt text](https://github.com/ReppinJesusChrist/my-images/blob/main/html_ref_1.jpg "HTML reference page 1")
@@ -239,3 +236,9 @@ petRegex.test(text);
 1. **Global** - When `this` is referenced outside a function or object it refers to the `globalThis` object. The globalThis object represents the context for runtime environment. For example, when running in a browser, globalThis refers to the browser's window object.
 1. **Function** - When `this` is referenced in a function it refers to the object that owns the function. That is either an object you defined or globalThis if the function is defined outside of an object. Note that when running is JavaScript strict mode, a global function's this variable is undefined instead of globalThis.
 1. **Object** - When `this` is referenced in a object it refers to the object.
+
+### Reference Sheets
+#### Async
+![async ref](https://github.com/ReppinJesusChrist/my-images/blob/main/async-cheatsheet.png)
+#### DOM
+![DOM ref](https://github.com/ReppinJesusChrist/my-images/blob/main/js-DOM-ref.png)
