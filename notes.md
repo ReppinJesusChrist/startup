@@ -10,6 +10,27 @@
 * Command to ssh into my website: `ssh -i \Users\User\Keys/"Remember Jesus Christ.pem" ubuntu@ec2-35-174-69-205.compute-1.amazonaws.com`
 * Command to deploy files to my website: `./deployFiles.sh -k ~/Keys/Remember\ Jesus\ Christ.pem -h covenantcompanion.click -s simon` (This one works from gitBash)
 
+## Linux Command Line
+### Reference Sheet
+![Linux_ref](https://github.com/ReppinJesusChrist/my-images/blob/main/Linux_CLref.jpg)
+## Misc Midterm Stuff
+### URL components
+1. Protocol identifier (http://, or https://) 
+2. Subdomain (**store**.microsoft.com)
+3. Second-level (root) domain (mail.**google**.com)
+4. Top Level Domain (domain extensions): churchofjesuschrist.**org**
+### Web certificates
+* Allow for https://, and the locked padlock icon in browser
+### Ports
+* 443 (HTTPS)
+* 80 (HTTP)
+* 22 (ssh)
+* 20 & 21 (File Transfer Protocol)
+### DNS Records
+* A record (Maps a domain to the physical IP address of the computer hosting the domain)
+* CNAME record (Causes one domain name to automatically redirect to another one)
+
+
 ## html
 ### Syntax Reference:
 ![alt text](https://github.com/ReppinJesusChrist/my-images/blob/main/html_ref_1.jpg "HTML reference page 1")
