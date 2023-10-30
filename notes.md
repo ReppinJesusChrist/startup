@@ -55,6 +55,8 @@
 ```
 
 ## CSS
+### Changing with js
+Get element and change the `.style.[attribute]` (See "tags" ref-sheet for options of attribute tags)
 ### Reference Sheets:
 #### General
 ![css genref](https://github.com/ReppinJesusChrist/my-images/blob/main/css-ref_1.jpg)
