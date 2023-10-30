@@ -9,48 +9,17 @@
 ## AWS
 * Command to ssh into my website: `ssh -i \Users\User\Keys/"Remember Jesus Christ.pem" ubuntu@ec2-35-174-69-205.compute-1.amazonaws.com`
 * Command to deploy files to my website: `./deployFiles.sh -k ~/Keys/Remember\ Jesus\ Christ.pem -h covenantcompanion.click -s simon` (This one works from gitBash)
+
+## HTTP
+
+
 ## html
+### Syntax Reference:
+![alt text](https://github.com/ReppinJesusChrist/my-images/blob/main/html_ref_1.jpg "HTML reference page 1")
+![alt text](https://github.com/ReppinJesusChrist/my-images/blob/main/html_ref_2.jpg "HTML reference page 1")
 ### DOM (Document object model)
 ![alt text](https://github.com/ReppinJesusChrist/my-images/blob/main/html_DOM_slide.png "HTML DOM example")
-
-
-## JavaScript
-### Useful Functions
-* `numberParts.join("-");` (Adds a - between each element in an array and stringifies it)
-* `string.match(regEx)` compares a string with a regular expression
-### Event Handlers
-* Types of Events
-  * Clipboard (Cut, Copied, Pasted)
-  * Focus (An element gets focus (What does that mean???))
-  * Keyboard (A key(/keys) are pressed)
-  * Mouse (Clicks)
-  * Test selection (When text is selected (Like options in Gospel Library?))
-### Console
-#### Log 
-`console.log('hello');`
-#### Timer
-```javascript
-console.time('demo time');
-// ... some code that takes a long time.
-console.timeEnd('demo time');
-// OUTPUT: demo time: 9762.74 ms
-```
-#### Count:
-```javascript
-console.time('demo time');
-// ... some code that takes a long time.
-console.timeEnd('demo time');
-// OUTPUT: demo time: 9762.74 ms
-```
-### Functions
-#### Example Function
-```javascript
-function sayHello() {
-  console.log('hello');
-}
-```
 ### Including JS in html
-#### Example Code:
 ```html
 <head>
   <script src="javascript.js"></script>
@@ -66,6 +35,15 @@ function sayHello() {
   </script>
 </body>
 ```
+
+## CSS
+### Reference Sheets:
+#### General
+![css genref](https://github.com/ReppinJesusChrist/my-images/blob/main/css-ref_1.jpg)
+#### Tags
+![css tagref 1](https://github.com/ReppinJesusChrist/my-images/blob/main/css_tag-ref_1.jpg)
+![css tagref 2](https://github.com/ReppinJesusChrist/my-images/blob/main/css_tag-ref_2.jpg)
+## JavaScript
 ### Type and Construct
 #### Variables
 * JS is weakly typed
@@ -99,16 +77,30 @@ function sayHello() {
 
 #### Conditionals & Loops
 * if/else
-  * Can be the same as in C++
+  * Can be the same as in C++: `if(true){ doSomething(); } else { doSomethingElse(); }`
   * Can also use ternary operator `a === 1 ? console.log(1) : console.log('not 1');`
 * while & do while
-  * Same as in C++, but i is defined with 'let' instead of a type
+  * Same as in C++: `while(true){ doStuff(); break; }`
 * for
-  * Basic loops are the same
+  * Basic loops are the same, but i is defined with 'let' instead of a type: `for(let i = 0; i < MAX_VALUE; ++i){}`
   * for in `for(const name in obj)` iterates over an object (eg array)
   * for of `for (const val of arr)` iterates over property values (**I don't understand this yet**)
 * break and continue
   * Same as in C++
+* switch
+  * same as C++:
+    ``` javascript
+    switch(expression){
+      case x:
+        doX();
+        break;
+      case y:
+        doY();
+        break;
+      default:
+        doYourDuty();
+    }
+    ```
 #### Strings
 | Function      | Meaning                                                      |
 | ------------- | ------------------------------------------------------------ |
@@ -127,16 +119,10 @@ function sayHello() {
    * `() => 3 // returns 3`
    * `() => { 3; }; // returns undefined`
    * `() => { return 3; }; // returns 3`
-#### Comparison to C++
-##### Similarities
- * Default parameters are allowed
- * void functions exist (they just aren't labled as such)
-##### Differences
+#### Differences from c++
  * Return type doesn't need to be declared along with function (or ever actually because types don't exist in JS
  * Functions can be an r-value!! (`const add = function (a,b) { return a + b ) };` is valid syntax!)
  * Functions can be passed as parameters to other functions
- * Functions can be declared inside of other functions!?
-   * This seems to me like a cheap way of avoiding the hassel of inheritance, but I'm not qualified to make that judgement yet
 ### Arrays
 | Function | Meaning                                                   | Example                       |
 | -------- | --------------------------------------------------------- | ----------------------------- |
