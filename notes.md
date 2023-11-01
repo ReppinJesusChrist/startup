@@ -1,4 +1,56 @@
-# Notes by topic:
+# Uncondensed Notes / To-dos
+## Things to research more:
+* curl command
+* http resources (what are they?)
+* endpoints (what are they?)
+* cache control
+## Raw Notes by Date
+### 11/1/23
+* Fetch, URL, ports, HTTP
+  * URL (https://byu.edu:443/api/city?q=pro#3)
+    * https:// = Scheme
+    * byu.edu = Domain
+    * :443 = Port
+    * /api/city = Path
+    * ?q=pre = Parameters
+    * #3 = Anchor
+  * HTTP
+    * Request
+      * First Line
+        * [Method] [Path] [Version]
+        * `POST /api/city?q=provo HTTP/1.1`
+      * Headers
+      * Body (e.g. `{"user":"tim"}`)
+    * Response
+      * First Line
+        * [Version] [Status code] [Status message]
+        * `HTTP/1.1 200 OK`
+      * Headers
+      * Body
+    * Methods
+      * GET
+        * Get an existing resource (no body (does that mean?))
+      * POST
+        * Create a new resource
+      * PUT
+        * Update an existing resource
+      * DELETE
+        * Delete a resource
+      * OPTIONS
+        * Get info ~ a resource
+    * Status Codes
+      * 200 = Success
+      * 204 = No content
+      * 301/302 = Redirect
+      * 304 = Not modified
+      * 400 = Bad request
+      * 403 = Forbidden
+      * 404 = Not found
+      * 429 = Too many requests
+      * 500 = Server error
+      * 503 = Not available
+
+# Condensed Notes by topic:
 ## Git
 * To add a change to Git: stage -> commit -> push
 * To update my local files: pull
@@ -22,10 +74,13 @@
 ### Web certificates
 * Allow for https://, and the locked padlock icon in browser
 ### Ports
-* 443 (HTTPS)
-* 80 (HTTP)
-* 22 (ssh)
-* 20 & 21 (File Transfer Protocol)
+* 443 HTTPS (HTTP Secure) for secure web requests
+* 123 = NTP (Network Time Protocol) for managing time
+* 80 = HTTP (Hypertext Transfer Protocol) for web requests
+* 53 = DNS (Domain Name System) for IP Address lookup
+* 25 = SMTP (Simple Mail Transfer Protocol) for email (outdated?)
+* 22 = SSH (Secure Shell)
+* 20 & 21 = FTP (File Transfer Protocol)
 ### DNS Records
 * A record (Maps a domain to the physical IP address of the computer hosting the domain)
 * CNAME record (Causes one domain name to automatically redirect to another one)
