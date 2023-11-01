@@ -55,8 +55,10 @@
       * 500 = Server error
       * 503 = Not available
 #### 5.2 CORS, service design
-##### Service example image:
-![](https://github.com/ReppinJesusChrist/my-images/blob/main/Service_Example.png)
+![](https://github.com/ReppinJesusChrist/my-images/blob/main/Service_Example.png "Service example image")
+* Endpoints (APIs) are the functions provided by a web service
+* They are accessed using the fetch function (in js)
+* We'll be buiding our web service using Node.js
 # Condensed Notes by topic:
 ## Git
 * To add a change to Git: stage -> commit -> push
