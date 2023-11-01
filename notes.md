@@ -2,10 +2,15 @@
 ## Things to research more:
 * curl command
 * http resources (what are they?)
-* endpoints (what are they?)
+* service endpoints (what are they?)
 * cache control
+* cross-site request forgery
+* RPC (Remote procedure call)
+* REST (Representational state transfer)
+* GraphQL 
 ## Raw Notes by Date
 ### 11/1/23
+#### 5.1
 * Fetch, URL, ports, HTTP
   * URL (https://byu.edu:443/api/city?q=pro#3)
     * https:// = Scheme
@@ -49,7 +54,9 @@
       * 429 = Too many requests
       * 500 = Server error
       * 503 = Not available
-
+#### 5.2 CORS, service design
+##### Service example image:
+![](https://github.com/ReppinJesusChrist/my-images/blob/main/Service_Example.png)
 # Condensed Notes by topic:
 ## Git
 * To add a change to Git: stage -> commit -> push
