@@ -13,82 +13,116 @@
 * When are URNs used?
 ## Raw Notes by Date
 ### 11/1/23
-#### 5.1
-* Fetch, URL, ports, HTTP
-  * **URL**
-    * General Format = `<scheme>://<domain name>:<port>/<path>?<parameters>#<anchor>`
-      * Scheme: The protocol requred to ask for the resource
-      * Domain Name: The domain name that owns the resource
-      * Port: The network port used to connect to the domain server
-      * Path: The path within the domain to reach the resource
-      * Parameters (AKA Query String): Additional qualifiers on the resource
-      * Anchor: A sub-location within the resource (e.g. scrolling to a certain point in browsers)
-    * Example: https://byu.edu:443/api/city?q=pro#3
-      * **https://** = Scheme
-      * **byu.edu** = Domain
-      * **:443** = Port
-      * **/api/city** = Path
-      * **?q=pre** = Parameters
-      * **#3** = Anchor
-  * **Ports**
-    * They can either be exposed externally or used only internally within a device
-    * Web services listen on specific ports
-      * Caddy (the one I'm using for startup) listens on port 80 and 443
-        * Port 80 requests are automatically redirected to 443
-      * Internally on my website I can use as many ports as I want
-        * The example Simon service uses port 3000 so I can't use that one, but any other high numbers are up for grabs. Port 4000 is recommended for base use. (I think I'll learn more about this as I implement startup service)
-    * Port Numbers
-      * Port numbers allow a single device to support multiple protocols (as well as different types of services?)
-      * Lower numbers (0-1024) are reserved by IANA (the internet governing body) for common internet protocols
-      * Higher numbers can be used for any purpose
-        * Technically 1024-49151 have been assigned to requesting entities, and 49152-65535 are considered dynamic
-        * In practice, service defined ports often use lower ports (e.g. 3000) for internal services
-      * Examples
-        * 443 = HTTPS (HTTP Secure) for secure web requests
-        * 194 = IRC (Internet Relay Chat) for chatting
-        * 161 = SNMP (Simple Network Management Protocol) for managing network devices such as routers or printers
-        * 123 = NTP (Network Time Protocol) for managing time
-        * 110 = POP3 (Post Office Protocol) for retrieving email
-        * 80 = HTTP (Hypertext Transfer Protocol) for web requests
-        * 53 = DNS (Domain Name System) for IP Address lookup
-        * 25 = SMTP (Simple Mail Transfer Protocol) for email (outdated?)
-        * 22 = SSH (Secure Shell)
-        * 20 = FTP (File Transfer Protocol)
-  * **HTTP**
-    * Request
-      * First Line
-        * [Method] [Path] [Version]
-        * `POST /api/city?q=provo HTTP/1.1`
-      * Headers
-      * Body (e.g. `{"user":"tim"}`)
-    * Response
-      * First Line
-        * [Version] [Status code] [Status message]
-        * `HTTP/1.1 200 OK`
-      * Headers
-      * Body
-    * Methods
-      * GET
-        * Get an existing resource (no body (does that mean?))
-      * POST
-        * Create a new resource
-      * PUT
-        * Update an existing resource
-      * DELETE
-        * Delete a resource
-      * OPTIONS
-        * Get info ~ a resource
-    * Status Codes
-      * 200 = Success
-      * 204 = No content
-      * 301/302 = Redirect
-      * 304 = Not modified
-      * 400 = Bad request
-      * 403 = Forbidden
-      * 404 = Not found
-      * 429 = Too many requests
-      * 500 = Server error
-      * 503 = Not available
+#### 5.1: Fetch, URL, ports, HTTP
+##### **URL**
+* General Format = `<scheme>://<domain name>:<port>/<path>?<parameters>#<anchor>`
+  * Scheme: The protocol requred to ask for the resource
+  * Domain Name: The domain name that owns the resource
+  * Port: The network port used to connect to the domain server
+  * Path: The path within the domain to reach the resource
+  * Parameters (AKA Query String): Additional qualifiers on the resource
+  * Anchor: A sub-location within the resource (e.g. scrolling to a certain point in browsers)
+* Example: https://byu.edu:443/api/city?q=pro#3
+  * **https://** = Scheme
+  * **byu.edu** = Domain
+  * **:443** = Port
+  * **/api/city** = Path
+  * **?q=pre** = Parameters
+  * **#3** = Anchor
+###### Ports
+* They can either be exposed externally or used only internally within a device
+* Web services listen on specific ports
+  * Caddy (the one I'm using for startup) listens on port 80 and 443
+    * Port 80 requests are automatically redirected to 443
+  * Internally on my website I can use as many ports as I want
+    * The example Simon service uses port 3000 so I can't use that one, but any other high numbers are up for grabs. Port 4000 is recommended for base use. (I think I'll learn more about this as I implement startup service)
+* Port Numbers
+  * Port numbers allow a single device to support multiple protocols (as well as different types of services?)
+  * Lower numbers (0-1024) are reserved by IANA (the internet governing body) for common internet protocols
+  * Higher numbers can be used for any purpose
+    * Technically 1024-49151 have been assigned to requesting entities, and 49152-65535 are considered dynamic
+    * In practice, service defined ports often use lower ports (e.g. 3000) for internal services
+  * Examples
+    * 443 = HTTPS (HTTP Secure) for secure web requests
+    * 194 = IRC (Internet Relay Chat) for chatting
+    * 161 = SNMP (Simple Network Management Protocol) for managing network devices such as routers or printers
+    * 123 = NTP (Network Time Protocol) for managing time
+    * 110 = POP3 (Post Office Protocol) for retrieving email
+    * 80 = HTTP (Hypertext Transfer Protocol) for web requests
+    * 53 = DNS (Domain Name System) for IP Address lookup
+    * 25 = SMTP (Simple Mail Transfer Protocol) for email (outdated?)
+    * 22 = SSH (Secure Shell)
+    * 20 = FTP (File Transfer Protocol)
+##### HTTP
+* HTTP is how the web talks
+  * It's the language used by web clients (i.e browsers) when they make a request to a server and by servers when they respond
+* Request
+  * First Line
+    * `<Method> <Path> <Version>`
+    * E.G. `POST /api/city?q=provo HTTP/1.1`
+      * List of accepted methods
+        * GET: get an existing resource or a resource representing a list of resources
+        * POST: create a new resource, the body of the request contains the resource
+        * PUT: update an existing resource, the body contains the updated resource
+        * DELETE: delete a resource
+        * OPTIONS: get info ~ a resource. Usually only HTTP headers are returned
+  * Headers
+    * Key:Value pairs
+    * Examples:
+      * Host: info.cern.ch
+      * Accept: text/html
+        * Type/Subtype
+        * Must be a MIME type [as defined by IANA](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)
+  * Body (e.g. `{"user":"tim"}`)
+
+      | Header                      | Example                              | Meaning                                                                                                                                                                        |
+      | --------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+      | Authorization               | Bearer bGciOiJIUzI1NiIsI             | A token that authorized the user making the request.                                                                                                                           |
+      | Accept                      | image/\*                             | What content format the client accepts. This may include wildcards.                                                                                                            |
+      | Content-Type                | text/html; charset=utf-8             | The format of the response content. These are described using standard [MIME](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) types. |
+      | Cookie                      | SessionID=39s8cgj34; csrftoken=9dck2 | Key value pairs that are generated by the server and stored on the client.                                                                                                     |
+      | Host                        | info.cern.ch                         | The domain name of the server. This is required in all requests.                                                                                                               |
+      | Origin                      | cs260.click                          | Identifies the origin that caused the request. A host may only allow requests from specific origins.                                                                           |
+      | Access-Control-Allow-Origin | https://cs260.click                  | Server response of what origins can make a request. This may include a wildcard.                                                                                               |
+      | Content-Length              | 368                                  | The number of bytes contained in the response.                                                                                                                                 |
+      | Cache-Control               | public, max-age=604800               | Tells the client how it can cache the response.                                                                                                                                |
+      | User-Agent                  | Mozilla/5.0 (Macintosh)              | The client application making the request.                                                                                                                                     |
+  
+* Response
+  * First Line
+    * [Version] [Status code] [Status message]
+    * `HTTP/1.1 200 OK`
+  * Headers
+  * Body
+* Status Codes
+  * 1xx - Informational
+    * 100 = Continue (the service is working on the request)
+  * 2xx - Success
+    * 200 = Success
+    * 201	= Created	(request was successful and a new resource was created)
+    * 204 = No content (The request was successful but no resource is returned)
+  * 3xx - Redirect (or the previously cached resource is still valid?)
+    * 304 = Not modified
+    * 307	= Permanent redirect	(The resource is no longer at the requested location. The new location is specified in the response location header)
+    * 308 =	Temporary redirect	(The resource is temporarily located at a different location. The temporary location is specified in the response location header)
+  * 4xx - Client errors. Invalid request
+    * 400 = Bad request (The request was malformed or invalid)
+    * 401	= Unauthorized	(The request did not provide a valid authentication token)
+    * 403 = Forbidden (The provided authentication token is not authorized for the resource)
+    * 404 = Not found
+    * 408	= Request timeout	The request takes too long
+    * 429 = Too many requests
+  * 5xx - Server errors. Request can't be granted because of a server error
+    * 500 = Internal Server error
+    * 503 = Service not available
+* curl is a console tool that can be used to make HTTP requests
+* Cookies
+  * HTTP is stateless, so to save info between sessions cookies are necessary (Why can't sites just local-storage?)
+  * Example
+    ```
+      HTTP/2 200
+      Set-Cookie: myAppCookie=tasty; SameSite=Strict; Secure; HttpOnly
+    ```
 #### 5.2 CORS, service design
 ![](https://github.com/ReppinJesusChrist/my-images/blob/main/Service_Example.png "Service example image")
 * Endpoints (APIs) are the functions provided by a web service
