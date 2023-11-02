@@ -2,9 +2,6 @@
 * **Review Markup again**
 * cache control
 * cross-site request forgery
-* RPC (Remote procedure call)
-* REST (Representational state transfer)
-* GraphQL
 * When are URNs used?
 
 # Raw Notes by Date and Topic
