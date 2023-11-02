@@ -1,5 +1,4 @@
-# Uncondensed Notes / To-dos
-## Things to research more:
+# To-dos / Things to research more:
 * **Review Markup again**
 * cache control
 * cross-site request forgery
@@ -8,9 +7,65 @@
 * GraphQL
 * When are URNs used?
 
-## Raw Notes by Date and Topic
-### 11/2/23
-#### SOP (Same Origin Policy) & CORS (Cross Origin Resource Sharing)
+# Raw Notes by Date and Topic
+## 11/2/23
+### Service Design
+* Common Uses for web services:
+  * Authenticate Users
+  * Track the session state for a user
+  * Provide, store, and analyze data
+  * Connect different users
+  * Aggregate/compile user imformation
+#### Endpoint Design
+* Resources:
+  * [SequenceDiagram.org](https://sequencediagram.org/index.html#initialData=C4S2BsFMAIGEAsCGxqIA5oFCcQY2APYBO0AguCLpDvsdAEIEBG25lkAtAHwDKkRAN34AuPikQDEIcIiZRMjJtz6CRY1JOmz5igDy6OHFUKLC2VDVJlzq5yPsPGRDZpa03Md5fxOjgiIhRcAgA7EwBnZBBQ6AB3MHgXFj0DIx8RWFCIqJiiSABHAFdIcJQQglAAM0ockIVmb1VTUlwqNBQ7aGCw-kjQUPqlXnTTHkQAT2gAIgAJSHBwAinoQjIKKkwnIm47YVn5xeXKogIAWySgA)
+  * [Open API Specification](https://spec.openapis.org/oas/latest.html) 
+* Principles
+  * Grammatical
+    * Every Resource is a noun
+    * Use HTTP methods (verbs) to act on those nouns
+  * Readable
+    * Resource chains should be clearly readable by users
+    * e.g. `/store/provo/order/28502`
+  * Discoverable
+    * Provide guide endpoints that are aggregates of other resources to make the sub-resouces easier to find.
+  * Compatible
+    * Make sure clients have updated before adjusting endpoints in a way that will make the application unusable for existing users
+    * This can be done by creating a new version and leaving both the new and old endpoints but mark the old one as 'depreciated' then remove it once all users have migrated
+  * Simple
+    * There should only be one way to act on any given resource
+    * Each endpoint should only do **one thing**
+  * Documented
+    * See the [Swagger Petstore](https://petstore.swagger.io/) example
+#### Models for exposing service endpoints
+* RPC (Remote Procedure Calls)
+  * Exposes endpoints as simple function calls
+  * Usually just uses the POST method over HTTP and uses the function name to represent the actual verb and subject of the call
+  * Example:
+    ```
+     POST /updateOrder HTTP/2
+     {"id": 2197, "date": "20220505"}
+    ```
+    or
+    ```
+     POST /rpc HTTP/2
+     {"cmd":"updateOrder", "params":{"id": 2197, "date": "20220505"}}
+    ```
+  * The advantage (and disadvantage) of this method is that it maps very closely to the actual coded implementation of the site. This makes implementation simpler, but also poses a security risk.
+* REST (Representational State Transfer
+  * Maps much more closely to HTTP calls
+  * Each HTTP method actually performs its intended function on the resource listed in the request
+  * Example:
+    ```
+     PUT /order/2197 HTTP/2
+     {"date": "20220505"}
+    ```
+* GraphQL
+  * Focuses on data manipulation
+  * Essentially it creates one single, filtered endpoint which can access a large number of others
+  * Advantages: Makes UI widgets and requests for large numbers of endpoints much simpler and more efficient
+  * Disadvantages: Authorization rights have to be baked into the database itself (because command-based security doesn't work. Also a single client now has much more power to consume server resources.
+### SOP (Same Origin Policy) & CORS (Cross Origin Resource Sharing)
 * SOP only allows JS to make requests to a domain if it's the same domain that the user is currently viewing
 * CORS allows websites to specify other domains which should be allowed to make requests
   * If no list is set for this permission, SOP remains unaltered and only the same domain can make requests (CORS will block all others)
