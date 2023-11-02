@@ -7,6 +7,7 @@
 * REST (Representational state transfer)
 * GraphQL
 * When are URNs used?
+
 ## Raw Notes by Date and Topic
 ### 11/2/23
 #### SOP (Same Origin Policy) & CORS (Cross Origin Resource Sharing)
@@ -132,6 +133,8 @@
 * Endpoints (APIs) are the functions provided by a web service
 * They are accessed using the fetch function (in js)
 * We'll be buiding our web service using Node.js
+
+
 # Condensed Notes by topic:
 ## Git
 * To add a change to Git: stage -> commit -> push
@@ -140,6 +143,7 @@
   * GitHub
   * Git Bash
   * Visual Studio Code
+ 
 ## AWS
 * Command to ssh into my website: `ssh -i \Users\User\Keys/"Remember Jesus Christ.pem" ubuntu@ec2-35-174-69-205.compute-1.amazonaws.com`
 * Command to deploy files to my website: `./deployFiles.sh -k ~/Keys/Remember\ Jesus\ Christ.pem -h covenantcompanion.click -s simon` (This one works from gitBash)
@@ -149,11 +153,9 @@
 ![Linux_ref](https://github.com/ReppinJesusChrist/my-images/blob/main/Linux_CLref.jpg)
 
 ## Misc Midterm Stuff
-
 ### DNS Records
 * A record (Maps a domain to the physical IP address of the computer hosting the domain)
 * CNAME record (Causes one domain name to automatically redirect to another one)
-
 
 ## html
 ### Syntax Reference:
@@ -189,7 +191,44 @@ Get element and change the `.style.[attribute]` (See "tags" ref-sheet for option
 ![css tagref 2](https://github.com/ReppinJesusChrist/my-images/blob/main/css_tag-ref_2.jpg)
 #### Flexbox Detail
 ![flexbox ref](https://github.com/ReppinJesusChrist/my-images/blob/main/LearnPine_Flexbox_CheatSheet.png)
+
 ## JavaScript
+### Fetch
+* Fetch allows js to make HTTP requests
+* Basically the fetch function takes a URL and returns a promise
+* GET Example:
+  ``` javascript
+  fetch('https://api.quotable.io/random')
+  .then((response) => response.json())
+  .then((jsonResponse) => {
+    console.log(jsonResponse);
+  });
+  ```
+* GET Example Response:
+  ``` javascript
+  {
+  content: 'Never put off till tomorrow what you can do today.',
+  author: 'Thomas Jefferson',
+  };
+  ```
+* POST Example Request:
+  ``` javascript
+  fetch('https://jsonplaceholder.typicode.com/posts', {
+  method: 'POST',
+  body: JSON.stringify({
+    title: 'test title',
+    body: 'test body',
+    userId: 1,
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((jsonResponse) => {
+    console.log(jsonResponse);
+  });
+  ```
 ### Type and Construct
 #### Variables
 * JS is weakly typed
@@ -344,7 +383,6 @@ petRegex.test(text);
 * Should **ONLY** be used when something truly exceptional occurs. This makes my code easier to debug and makes my logs more meaningful and useful.
 * Basic format `try { // normal code } catch (err) { // exception handling code } finally { // always called code }`
 * Format for throwing errors: `throw new Error('connection error');`
-
 ### Destructuring
 * Used to selectively pull elements out of a larger object
 * Two Examples:
