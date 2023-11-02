@@ -7,18 +7,28 @@
 * cross-site request forgery
 * RPC (Remote procedure call)
 * REST (Representational state transfer)
-* GraphQL 
+* GraphQL
+* When are higher number network ports used?
+* When are URNs used?
 ## Raw Notes by Date
 ### 11/1/23
 #### 5.1
 * Fetch, URL, ports, HTTP
-  * URL (https://byu.edu:443/api/city?q=pro#3)
-    * https:// = Scheme
-    * byu.edu = Domain
-    * :443 = Port
-    * /api/city = Path
-    * ?q=pre = Parameters
-    * #3 = Anchor
+  * URL
+    * General Format = `<scheme>://<domain name>:<port>/<path>?<parameters>#<anchor>`
+      * Scheme: The protocol requred to ask for the resource
+      * Domain Name: The domain name that owns the resource
+      * Port: The network port used to connect to the domain server
+      * Path: The path within the domain to reach the resource
+      * Parameters (AKA Query String): Additional qualifiers on the resource
+      * Anchor: A sub-location within the resource (e.g. scrolling to a certain point in browsers)
+    * Example: https://byu.edu:443/api/city?q=pro#3
+      * **https://** = Scheme
+      * **byu.edu** = Domain
+      * **:443** = Port
+      * **/api/city** = Path
+      * **?q=pre** = Parameters
+      * **#3** = Anchor
   * HTTP
     * Request
       * First Line
@@ -83,13 +93,15 @@
 ### Web certificates
 * Allow for https://, and the locked padlock icon in browser
 ### Ports
-* 443 HTTPS (HTTP Secure) for secure web requests
-* 123 = NTP (Network Time Protocol) for managing time
-* 80 = HTTP (Hypertext Transfer Protocol) for web requests
-* 53 = DNS (Domain Name System) for IP Address lookup
-* 25 = SMTP (Simple Mail Transfer Protocol) for email (outdated?)
-* 22 = SSH (Secure Shell)
-* 20 & 21 = FTP (File Transfer Protocol)
+* Lower numbers are reserved for common internet protocols, but **higher numbers can be used for any purpose**(when is that relevant?)
+* Examples
+  * 443 HTTPS (HTTP Secure) for secure web requests
+  * 123 = NTP (Network Time Protocol) for managing time
+  * 80 = HTTP (Hypertext Transfer Protocol) for web requests
+  * 53 = DNS (Domain Name System) for IP Address lookup
+  * 25 = SMTP (Simple Mail Transfer Protocol) for email (outdated?)
+  * 22 = SSH (Secure Shell)
+  * 20 & 21 = FTP (File Transfer Protocol)
 ### DNS Records
 * A record (Maps a domain to the physical IP address of the computer hosting the domain)
 * CNAME record (Causes one domain name to automatically redirect to another one)
