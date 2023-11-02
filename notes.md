@@ -1,5 +1,6 @@
 # Uncondensed Notes / To-dos
 ## Things to research more:
+* **Review Markup again**
 * curl command
 * http resources (what are they?)
 * service endpoints (what are they?)
@@ -14,7 +15,7 @@
 ### 11/1/23
 #### 5.1
 * Fetch, URL, ports, HTTP
-  * URL
+  * **URL**
     * General Format = `<scheme>://<domain name>:<port>/<path>?<parameters>#<anchor>`
       * Scheme: The protocol requred to ask for the resource
       * Domain Name: The domain name that owns the resource
@@ -29,7 +30,31 @@
       * **/api/city** = Path
       * **?q=pre** = Parameters
       * **#3** = Anchor
-  * HTTP
+  * **Ports**
+    * They can either be exposed externally or used only internally within a device
+    * Web services listen on specific ports
+      * Caddy (the one I'm using for startup) listens on port 80 and 443
+        * Port 80 requests are automatically redirected to 443
+      * Internally on my website I can use as many ports as I want
+        * The example Simon service uses port 3000 so I can't use that one, but any other high numbers are up for grabs. Port 4000 is recommended for base use. (I think I'll learn more about this as I implement startup service)
+    * Port Numbers
+      * Port numbers allow a single device to support multiple protocols (as well as different types of services?)
+      * Lower numbers (0-1024) are reserved by IANA (the internet governing body) for common internet protocols
+      * Higher numbers can be used for any purpose
+        * Technically 1024-49151 have been assigned to requesting entities, and 49152-65535 are considered dynamic
+        * In practice, service defined ports often use lower ports (e.g. 3000) for internal services
+      * Examples
+        * 443 = HTTPS (HTTP Secure) for secure web requests
+        * 194 = IRC (Internet Relay Chat) for chatting
+        * 161 = SNMP (Simple Network Management Protocol) for managing network devices such as routers or printers
+        * 123 = NTP (Network Time Protocol) for managing time
+        * 110 = POP3 (Post Office Protocol) for retrieving email
+        * 80 = HTTP (Hypertext Transfer Protocol) for web requests
+        * 53 = DNS (Domain Name System) for IP Address lookup
+        * 25 = SMTP (Simple Mail Transfer Protocol) for email (outdated?)
+        * 22 = SSH (Secure Shell)
+        * 20 = FTP (File Transfer Protocol)
+  * **HTTP**
     * Request
       * First Line
         * [Method] [Path] [Version]
@@ -84,24 +109,9 @@
 ## Linux Command Line
 ### Reference Sheet
 ![Linux_ref](https://github.com/ReppinJesusChrist/my-images/blob/main/Linux_CLref.jpg)
+
 ## Misc Midterm Stuff
-### URL components
-1. Protocol identifier (http://, or https://) 
-2. Subdomain (**store**.microsoft.com)
-3. Second-level (root) domain (mail.**google**.com)
-4. Top Level Domain (domain extensions): churchofjesuschrist.**org**
-### Web certificates
-* Allow for https://, and the locked padlock icon in browser
-### Ports
-* Lower numbers are reserved for common internet protocols, but **higher numbers can be used for any purpose**(when is that relevant?)
-* Examples
-  * 443 HTTPS (HTTP Secure) for secure web requests
-  * 123 = NTP (Network Time Protocol) for managing time
-  * 80 = HTTP (Hypertext Transfer Protocol) for web requests
-  * 53 = DNS (Domain Name System) for IP Address lookup
-  * 25 = SMTP (Simple Mail Transfer Protocol) for email (outdated?)
-  * 22 = SSH (Secure Shell)
-  * 20 & 21 = FTP (File Transfer Protocol)
+
 ### DNS Records
 * A record (Maps a domain to the physical IP address of the computer hosting the domain)
 * CNAME record (Causes one domain name to automatically redirect to another one)
