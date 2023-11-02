@@ -1,17 +1,21 @@
 # Uncondensed Notes / To-dos
 ## Things to research more:
 * **Review Markup again**
-* curl command
-* http resources (what are they?)
-* service endpoints (what are they?)
 * cache control
 * cross-site request forgery
 * RPC (Remote procedure call)
 * REST (Representational state transfer)
 * GraphQL
-* When are higher number network ports used?
 * When are URNs used?
-## Raw Notes by Date
+## Raw Notes by Date and Topic
+### 11/2/23
+#### SOP (Same Origin Policy) & CORS (Cross Origin Resource Sharing)
+* SOP only allows JS to make requests to a domain if it's the same domain that the user is currently viewing
+* CORS allows websites to specify other domains which should be allowed to make requests
+  * If no list is set for this permission, SOP remains unaltered and only the same domain can make requests (CORS will block all others)
+  * So if I want to use a service in my website, I need to make sure that its `access-control-allow-origin:` returns `*` (meaning it allows requests from all sites), or `https://covenantcompanion.click` (my site's calling origin). If they don't, I won't be able to use them because CORS will block the traffic
+* Apparently CORS is easy to bypass with a proxy. I don't know how that works, but it does mean that it isn't sufficient security on its own
+#### CORS
 ### 11/1/23
 #### 5.1: Fetch, URL, ports, HTTP
 ##### **URL**
