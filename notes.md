@@ -213,22 +213,35 @@ Get element and change the `.style.[attribute]` (See "tags" ref-sheet for option
   ```
 * POST Example Request:
   ``` javascript
-  fetch('https://jsonplaceholder.typicode.com/posts', {
-  method: 'POST',
-  body: JSON.stringify({
-    title: 'test title',
-    body: 'test body',
-    userId: 1,
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
-  .then((jsonResponse) => {
-    console.log(jsonResponse);
-  });
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify({
+      title: 'test title',
+      body: 'test body',
+      userId: 1,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((response) => response.json())
+    .then((jsonResponse) => {
+      console.log(jsonResponse);
+    });
   ```
+#### Fetch -> DOM Example
+``` javascript
+const url = "https://api.chucknorris.io/jokes/random";
+fetch(url)
+  .then((x) => x.json())
+  .then((response) => {
+    document.querySelector("pre").textContent = JSON.stringify(
+      response.value,
+      null,
+      "  "
+    ) + " [wait for laughter...]";
+  });
+```
 ### Type and Construct
 #### Variables
 * JS is weakly typed
