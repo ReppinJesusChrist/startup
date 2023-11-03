@@ -14,6 +14,7 @@
 ### Express, debugging, daemons
 
 ### Node.js (Node)
+* **CAN ONLY BE RUN IN CONSOLE IF IT'S RUN AS ADMIN!!** (That took me a long time to figure out)
 * Used for deploying JS outside the browser
   * This means that js can also be used to run on the server and power the entire technology stack
   * "One language to rule them all"
