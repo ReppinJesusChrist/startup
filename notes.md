@@ -3,8 +3,26 @@
 * cache control
 * cross-site request forgery
 * When are URNs used?
+* Google V8 engine
 
 # Raw Notes by Date and Topic
+## 11/3/23
+### UI & endpoint testing
+* Testing on actual devices: BrowserStack
+* Endpoint Testing: Jest
+  * Has a VS Code extension!
+### Express, debugging, daemons
+
+### Node.js (Node)
+* Used for deploying JS outside the browser
+  * This means that js can also be used to run on the server and power the entire technology stack
+  * "One language to rule them all"
+  * Uses Google's V8 engine, and runs it using the console instead of a browser
+* Maintained by the Open.js foundation
+* NVM (Node version manager)
+* Node JS runtime
+* NPM (Node package manager)
+  * Provides access to a massive library of packages
 ## 11/2/23
 ### Service Design
 * Common Uses for web services:
@@ -68,7 +86,6 @@
   * If no list is set for this permission, SOP remains unaltered and only the same domain can make requests (CORS will block all others)
   * So if I want to use a service in my website, I need to make sure that its `access-control-allow-origin:` returns `*` (meaning it allows requests from all sites), or `https://covenantcompanion.click` (my site's calling origin). If they don't, I won't be able to use them because CORS will block the traffic
 * Apparently CORS is easy to bypass with a proxy. I don't know how that works, but it does mean that it isn't sufficient security on its own
-#### CORS
 ### 11/1/23
 #### 5.1: Fetch, URL, ports, HTTP
 ##### **URL**
