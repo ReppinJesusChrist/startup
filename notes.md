@@ -4,6 +4,7 @@
 * cross-site request forgery
 * When are URNs used?
 * Google V8 engine
+* Deno and Bun (Alternatives to Node.js)
 
 # Raw Notes by Date and Topic
 ## 11/3/23
@@ -12,7 +13,47 @@
 * Endpoint Testing: Jest
   * Has a VS Code extension!
 ### Express, debugging, daemons
-
+#### PM2
+* I shouldn't need any of this info for tests or ordinary use, but here's [the link to the class info ~ it](https://github.com/webprogramming260/.github/blob/main/profile/webServices/pm2/pm2.md#pm2)
+#### Nodemon
+* Automatically updates my site whenever it senses changes to relevant files!!!
+#### Debugging
+* Debugging into popular packages is a great way to learn how to code by seeing how really good programmers do things
+#### Express
+* Used for
+  * Routing requests for service endpoints (?)
+  * Manipulating HTTP requests using JSON body content (?)
+  * Generating HTTP responses
+  * Using middleware to add functionality
+* Routes
+  * Example app to send data to localhost:8080/store/provo:
+    ``` javascript
+       const express = require('express');
+       const app = express();
+       
+       app.listen(8080);
+       
+       app.get('/store/provo', (req, res, next) => {
+         res.send({name: 'provo'});
+       });
+    ```
+* Middleware
+  * Two parts: Mediator and Middleware
+  * Middleware functions are always called for every HTTP request unless a preceding middleware function does not call next
+  * A middleware function has the following pattern: `function middlewareName(req, res, next)`
+    * req = the HTTP request object
+    * res = the HTTP response object
+    * next = the next middleward funciton to pass processing to
+      * middleware functions should generally end by calling the next() function
+      * Any middleware that does not call the next function after doing its processing, stops the middleware chain from continuing.
+      * Middleware function example:
+        ```javascript
+           app.use((req, res, next) => {
+           console.log(req.originalUrl);
+           next();
+           });
+        ```
+        
 ### Node.js (Node)
 * **CAN ONLY BE RUN IN CONSOLE IF IT'S RUN AS ADMIN!!** (That took me a long time to figure out)
 * Used for deploying JS outside the browser
@@ -33,6 +74,9 @@
     6. Use the code the package provides in your JavaScript
     7. Run your code with node index.js
 * Creates Package.json
+* You do not want to check this directory [node_modules] into your source control system since it can be very large and can be rebuilt using the information contained in the package.json and package-lock.json files. So make sure you include node_modules in your .gitignore file.
+* **"For the rest of the course you will be executing your code using Node.js to run your backend code and serve up your frontend code to the browser. This means you will no longer be using the VS Code Live Server extension to serve your frontend code in the browser"**
+
 ## 11/2/23
 ### Service Design
 * Common Uses for web services:
