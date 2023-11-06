@@ -1,4 +1,4 @@
-## Important Commands
+# Important Commands
 * Command to ssh into my website: `ssh -i \Users\User\Keys/"Remember Jesus Christ.pem" ubuntu@ec2-35-174-69-205.compute-1.amazonaws.com`
 * Command to deploy files to my website: `./deployFiles.sh -k ~/Keys/Remember\ Jesus\ Christ.pem -h covenantcompanion.click -s simon` (This one works from gitBash)
 
@@ -12,6 +12,13 @@
 * Deno and Bun (Alternatives to Node.js)
 
 # Raw Notes by Date and Topic
+## 11/06/23
+### UI Testing
+* Basically this is testing how well the User Interface works under a wide array of conditions
+* There are two parts to this problem: Automating the browser, and testing different browsers/devices
+* We're going to use Playwright in this class (backed by Microsoft and considered one of the least flaky (random failure))
+* 
+
 ## 11/3/23
 ### UI & endpoint testing
 * Testing on actual devices: BrowserStack
