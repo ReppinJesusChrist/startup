@@ -24,6 +24,15 @@
 * Node JS runtime
 * NPM (Node package manager)
   * Provides access to a massive library of packages
+  * Steps for using:
+    1. Create your project directory
+    2. Initialize it for use with NPM by running npm init -y
+    3. Make sure .gitignore file contains node_modules
+    4. Install any desired packages with npm install <package name here>
+    5. Add require('<package name here>') to your application's JavaScript
+    6. Use the code the package provides in your JavaScript
+    7. Run your code with node index.js
+* Creates Package.json
 ## 11/2/23
 ### Service Design
 * Common Uses for web services:
