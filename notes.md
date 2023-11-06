@@ -1,3 +1,8 @@
+## Important Commands
+* Command to ssh into my website: `ssh -i \Users\User\Keys/"Remember Jesus Christ.pem" ubuntu@ec2-35-174-69-205.compute-1.amazonaws.com`
+* Command to deploy files to my website: `./deployFiles.sh -k ~/Keys/Remember\ Jesus\ Christ.pem -h covenantcompanion.click -s simon` (This one works from gitBash)
+
+
 # To-dos / Things to research more:
 * **Review Markup again**
 * cache control
@@ -266,11 +271,6 @@
   * GitHub
   * Git Bash
   * Visual Studio Code
- 
-## AWS
-* Command to ssh into my website: `ssh -i \Users\User\Keys/"Remember Jesus Christ.pem" ubuntu@ec2-35-174-69-205.compute-1.amazonaws.com`
-* Command to deploy files to my website: `./deployFiles.sh -k ~/Keys/Remember\ Jesus\ Christ.pem -h covenantcompanion.click -s simon` (This one works from gitBash)
-
 ## Linux Command Line
 ### Reference Sheet
 ![Linux_ref](https://github.com/ReppinJesusChrist/my-images/blob/main/Linux_CLref.jpg)
