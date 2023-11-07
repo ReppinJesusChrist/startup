@@ -1,26 +1,17 @@
 @import url('http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext');
 
-/*body {
-  background-color: grey;
-  column-rule: solid thick black;
-  font-family: 'Lato';
-
-  display: flex;
-  flex-direction: column;
-  min-width: 375px;
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-main {
-  flex: 1 calc(100vh - 110px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-*/
+/*main {}*/
+
 footer {
+  height: 100%;
   flex: 0 30px;
-  float: right;
+  float: left;
 }
 
 .navbar-brand {

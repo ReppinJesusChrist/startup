@@ -64,7 +64,7 @@
       <h4>Set a goal below to get started: just enter the details of what you hope to do, 
         select a difficulty, check the box associated with the covenant(s) your goal pertains to,
         then press submit.</h4>
-      <form class="bg-secondary">
+      <form onsubmit="setGoal(this.form)" class="bg-secondary" id="goal-survey">
         <legend>Set Goal</legend>
         <div class="form-group row">
           <label for="goal-description" class="col-sm-2 col-form-label">Goal Description</label>
@@ -202,6 +202,7 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"
     ></script>
-    <script type="text/javascript" src="login.js"></script>
+    <script type="text/javascript" src="common.js"></script>
+    <script type="text/javascript" src="goals.js"></script>
   </body>
 </html>
