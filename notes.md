@@ -5,6 +5,7 @@
 
 # To-dos / Things to research more:
 * **Review Markup again**
+* **Study playwright more deeply** (I just don't have the mental energy to do it right now) 
 * cache control
 * cross-site request forgery
 * When are URNs used?
@@ -13,11 +14,15 @@
 
 # Raw Notes by Date and Topic
 ## 11/06/23
+### Test Driven Development
+"The great thing about test driven development (TDD) is that you can actually write your tests first and then write your code based upon the design represented by the tests. When your tests pass you know your code is complete. Additionally, when you make later modifications to your code you can simply run your tests again. If they pass then you can be confident that your code is still working without having to manually test everything yourself. With systems that have hundreds of endpoints and hundreds of thousands of lines of code, TDD becomes an indispensable part of the development process."
 ### UI Testing
 * Basically this is testing how well the User Interface works under a wide array of conditions
 * There are two parts to this problem: Automating the browser, and testing different browsers/devices
-* We're going to use Playwright in this class (backed by Microsoft and considered one of the least flaky (random failure))
-* 
+* Automating the browser:
+  * We're going to use Playwright in this class (backed by Microsoft and considered one of the least flaky (random failure))
+* Testing different devices:
+  * BrowserStack allows for testing on various real devices. It costs money, but it also offers free trials if I really want to test my site on different machines (or just see how a software like that works so I know what it is if I ever actually need an industrial grade testing software in the future)
 
 ## 11/3/23
 ### UI & endpoint testing
