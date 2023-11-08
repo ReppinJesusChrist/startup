@@ -1,8 +1,31 @@
-let form = document.getElementById("goal-survey");
+function updateGoalsPage(){
+  const testMessage = localStorage.getItem("testGoal");
+  console.log(testMessage);
+}
 
-function setGoal(survey){
-  console.log("Goal set!");
-  const new_goal = new goal();
+function setGoal(data){
+  console.log("setGoal called");
+  let tag_arr = [];
+  let description = 'NA';
+  let difficulty = 'NA';
+  for(let [key, value] of data){
+    if(key == 'covenant-list'){
+      tag_arr.push(value);
+    } else if(key == 'goal-description'){
+      description = value;
+    } else if(key == 'goal-difficulty'){
+      difficulty = value;
+    }
+  }
+  //const form_input = readFormInput();
+  const new_goal = new goal(description, difficulty, tag_arr);
+  console.log(localStorage.getItem("goal_arr"));
+  if(localStorage.getItem("goal_arr") == "[object Object]"){
+    localStorage.setItem("goal_arr", JSON.stringify([]));
+  }
+  let goal_arr = JSON.parse(localStorage.getItem("goal_arr"));
+  goal_arr.unshift(new_goal);
+  localStorage.setItem("goal_arr", JSON.stringify(goal_arr));
   localStorage.setItem("testGoal", JSON.stringify(new_goal));
 }
 
@@ -12,6 +35,14 @@ class goal{
     this.description = description;
     this.difficulty = difficulty;
     this.tags = tags;
+  }
+
+  toJSON(){
+    return {
+      description: this.description,
+      difficulty: this.difficulty,
+      tags: this.tags
+    }
   }
 
   printTest(){

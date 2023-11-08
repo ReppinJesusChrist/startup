@@ -1,4 +1,4 @@
-function updatePage(){
+function updateCommonPage(){
   checkNavbarUnlock();
   checkDisplayUsername();
 }
