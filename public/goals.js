@@ -28,7 +28,9 @@ async function setGoal(data){
   localStorage.setItem("goal_arr", JSON.stringify(goal_arr));
   localStorage.setItem("testGoal", JSON.stringify(new_goal));
     
-  /* Failed attempt to get a service call working. I'll come back and try to fix it
+}
+
+/* Failed attempt to get a service call working. I'll come back and try to fix it
   *   Before I make another attempt, I need to watch "Debugging node.js" all the way through without destraction
   *   fetch('/api/goals', {
   *       method: 'POST',
@@ -36,7 +38,53 @@ async function setGoal(data){
   *       body: JSON.stringify(new_goal),
   *   });
   */
+async function postTest(){
+  test_array = ["Always", "Remember", "Him."];
+
+  try{
+    const response = await fetch('/api/goals', {
+      method: 'POST',
+      headers: {'content-type': 'application/json'},
+      body: JSON.stringify(test_array),
+    });
     
+    const goals = await response.json();
+  } catch {
+    alert("postTest didn't work right");
+  }
+  
+}
+
+async function getTest(){
+  try{
+    const response = await fetch('/api/goals');
+    let goals = await response.json();
+    alert(goals);
+  } catch {
+    alert("Fetch didn't work correctly");
+  }
+}
+
+async function addAlways(){
+  let goals = [];
+  try{
+    const response = await fetch('/api/goals');
+    goals = await response.json();
+    const add_string = 'Always';
+    goals.push(add_string);
+  } catch {
+    alert("addAlways.get didn't work correctly");
+  }
+
+  try{
+    const response = await fetch('/api/goals', {
+      method: 'POST',
+      headers: {'content-type': 'application/json'},
+      body: JSON.stringify(goals),
+    });
+  } catch {
+    alert("addAlways.post didn't work right");
+  }
 }
 
 class goal{
@@ -66,14 +114,3 @@ class goal{
 
 
 }
-
-/* [TODO: Finish this function]
-function bool_to_tag(tags){
-  const tag_names = ["Baptism", "Sacrament", "Priesthood", Obedience, "Sacrifice",
-    "Gospel", "Chastity", "Consecration"];
-  for (let index = 0; index < tags.length; index++) {
-    const element = array[index];
-    
-  }
-}
-*/

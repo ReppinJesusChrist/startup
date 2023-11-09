@@ -1,3 +1,4 @@
+const cookieParser = require('cookie-parser');
 const express = require('express');
 const app = express();
 
@@ -6,6 +7,8 @@ const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 // JSON body parsing using built-in middleware
 app.use(express.json());
+
+app.use(cookieParser());
 
 // Serve up the frontend static content hosting
 app.use(express.static('public'));
@@ -20,9 +23,8 @@ apiRouter.get('/goals', (_req, res) => {
 });
 
 // SubmitScore
-apiRouter.post('/goal', (req, res) => {
-  console.log("post called");
-  goals = ["api", "post", "test"];
+apiRouter.post('/goals', (req, res) => {
+  goals = req.body;
   res.send(goals);
 });
 

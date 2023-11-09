@@ -40,7 +40,7 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  <a class="nav-link active" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="info.html">Info</a>
@@ -72,6 +72,11 @@
       <h4>Set a goal below to get started: just enter the details of what you hope to do, 
         select a difficulty, check the box associated with the covenant(s) your goal pertains to,
         then press submit.</h4>
+      <section>
+        <button onclick="postTest()">Test Post Function</button>
+        <button onclick="getTest()">Test Get Function</button>
+        <button onclick="addAlways()">Test addAlways Function</button>
+      </section>
       <form class="bg-secondary" id="goal-survey">
         <legend>Set Goal</legend>
         <div class="form-group row">
