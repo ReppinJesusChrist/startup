@@ -15,14 +15,15 @@ const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // GetScores
-apiRouter.get('/scores', (_req, res) => {
-  res.send(scores);
+apiRouter.get('/goals', (_req, res) => {
+  res.send(goals);
 });
 
 // SubmitScore
-apiRouter.post('/score', (req, res) => {
-  scores = updateScores(req.body, scores);
-  res.send(scores);
+apiRouter.post('/goal', (req, res) => {
+  console.log("post called");
+  goals = ["api", "post", "test"];
+  res.send(goals);
 });
 
 // Return the application's default page if the path is unknown
@@ -33,3 +34,5 @@ app.use((_req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+let goals = [];

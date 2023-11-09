@@ -1,15 +1,24 @@
 @import url('http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext');
 
 body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 375px;
 }
 
-/*main {}*/
+header {
+  flex: 0 80px;
+}
+
+main {
+  flex: 1 calc(90vh - 110px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
 
 footer {
-  height: 100%;
   flex: 0 30px;
   float: left;
 }
@@ -35,14 +44,14 @@ footer {
   justify-content: space-between;
 }
 
-@keyframes Title-in {
-  from{
-    font-size: 0vw;
+@media (max-height: 600px) {
+  header {
+    display: none;
   }
-  95% {
-    font-size: 8.5vw;
+  footer {
+    display: none;
   }
-  to {
-    font-size: 7.5vw;
+  main {
+    flex: 1 100vh;
   }
 }

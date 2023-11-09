@@ -3,8 +3,7 @@ function updateGoalsPage(){
   console.log(testMessage);
 }
 
-function setGoal(data){
-  console.log("setGoal called");
+async function setGoal(data){
   let tag_arr = [];
   let description = 'NA';
   let difficulty = 'NA';
@@ -17,16 +16,27 @@ function setGoal(data){
       difficulty = value;
     }
   }
-  //const form_input = readFormInput();
+
   const new_goal = new goal(description, difficulty, tag_arr);
   console.log(localStorage.getItem("goal_arr"));
-  if(localStorage.getItem("goal_arr") == "[object Object]"){
+  if(localStorage.getItem("goal_arr") == "[object Object]" 
+      || localStorage.getItem("goal_arr") == null){
     localStorage.setItem("goal_arr", JSON.stringify([]));
   }
   let goal_arr = JSON.parse(localStorage.getItem("goal_arr"));
   goal_arr.unshift(new_goal);
   localStorage.setItem("goal_arr", JSON.stringify(goal_arr));
   localStorage.setItem("testGoal", JSON.stringify(new_goal));
+    
+  /* Failed attempt to get a service call working. I'll come back and try to fix it
+  *   Before I make another attempt, I need to watch "Debugging node.js" all the way through without destraction
+  *   fetch('/api/goals', {
+  *       method: 'POST',
+  *       headers: {'content-type': 'application/json'},
+  *       body: JSON.stringify(new_goal),
+  *   });
+  */
+    
 }
 
 class goal{
