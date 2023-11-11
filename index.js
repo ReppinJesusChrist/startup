@@ -17,14 +17,14 @@ app.use(express.static('public'));
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-// GetScores
+// GetGoals
 apiRouter.get('/goals', (_req, res) => {
   res.send(goals);
 });
 
 // SubmitScore
 apiRouter.post('/goals', (req, res) => {
-  goals = req.body;
+  goals.push(req.body);
   res.send(goals);
 });
 

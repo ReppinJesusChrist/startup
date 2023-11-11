@@ -64,7 +64,7 @@
       </nav>
     </header>
 
-    <main>
+    <main class="container-fluid bg-secondary text-center">
       <h2>Welcome to Goals!</h2>
       <h3>This is where you get to set goals to help you work toward being a 
         better covenant disciple of 
@@ -73,8 +73,8 @@
         select a difficulty, check the box associated with the covenant(s) your goal pertains to,
         then press submit.</h4>
       <section>
-        <button onclick="postTest()">Test Post Function</button>
-        <button onclick="getTest()">Test Get Function</button>
+        <button onclick="updateGoalsPage()">Test Table Update</button>
+        <button onclick="getGoals()">Test Get Function</button>
         <button onclick="addAlways()">Test addAlways Function</button>
       </section>
       <form class="bg-secondary" id="goal-survey">
@@ -90,19 +90,19 @@
             <legend class="col-form-label col-sm-2 pt-0">Select Goal Difficulty</legend>
             <div class="col-sm-10">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="goal-difficulty" id="goal-radio-easy" value="easy">
+                <input class="form-check-input" type="radio" name="goal-difficulty" id="goal-radio-easy" value="Easy">
                 <label class="form-check-label" for="goal-radio-easy">
                   Easy
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="goal-difficulty" id="goal-radio-medium" value="medium">
+                <input class="form-check-input" type="radio" name="goal-difficulty" id="goal-radio-medium" value="Medium">
                 <label class="form-check-label" for="goal-radio-medium">
                   Medium
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="goal-difficulty" id="goal-radio-hard" value="hard">
+                <input class="form-check-input" type="radio" name="goal-difficulty" id="goal-radio-hard" value="Hard">
                 <label class="form-check-label" for="goal-radio-hard">
                   Hard
                 </label>
@@ -115,49 +115,49 @@
             <legend class="col-form-label col-sm-2 pt-0">Select Applicable Covenants</legend>
             <div class="col-sm-10">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="covenant-list" id="baptism-checkbox" value="baptism">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="baptism-checkbox" value="Baptism">
                 <label class="form-check-label" for="baptism-checkbox">
                   Baptism
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="covenant-list" id="sacrament-checkbox" value="sacrament">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="sacrament-checkbox" value="Sacrament">
                 <label class="form-check-label" for="sacrament-checkbox">
                   Sacrament
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="covenant-list" id="priesthood-checkbox" value="priesthood">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="priesthood-checkbox" value="Priesthood">
                 <label class="form-check-label" for="priesthood-checkbox">
                   Oath and Covenant of the Priesthood
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="covenant-list" id="obedience-checkbox" value="obedience">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="obedience-checkbox" value="Obedience">
                 <label class="form-check-label" for="obedience-checkbox">
                   Obedience
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="covenant-list" id="sacrifice-checkbox" value="sacrifice">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="sacrifice-checkbox" value="Sacrifice">
                 <label class="form-check-label" for="sacrifice-checkbox">
                   Sacrifice
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="covenant-list" id="gospel-checkbox" value="gospel">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="gospel-checkbox" value="The Gospel">
                 <label class="form-check-label" for="gospel-checkbox">
                   The Gospel
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="covenant-list" id="chastity-checkbox" value="chastity">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="chastity-checkbox" value="Chastity">
                 <label class="form-check-label" for="chastity-checkbox">
                   Chastity
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="covenant-list" id="consecration-checkbox" value="consecration">
+                <input class="form-check-input" type="checkbox" name="covenant-list" id="consecration-checkbox" value="Consecration">
                 <label class="form-check-label" for="consecration-checkbox">
                   Consecration
                 </label>
@@ -181,42 +181,25 @@
       </script>
 
       <h3>My Goals</h3>
-      <table class="table table-dark  table-striped-columns">
-        <thead>
+      <table class="table table-warning table-striped-columns">
+        <thead class="table-dark">
           <tr>
             <th scope="col">#</th>  
             <th scope="col">Goal Description</th>
+            <th scope="col">Difficulty</th>
             <th scope="col">Date Set</th>
             <th scope="col">Date Completed</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-              <th scope="row">1</th>
-              <td>Example Goal #1: Stop and remember Jesus Christ at least once today</td>
-              <td>09/29/23</td>
-              <td>09/30/23</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Example Goal #2: Text my ministering assignments and offer to give them a priesthood blessing</td>
-            <td>09/26/23</td>
-            <td>Not yet completed.
-              <div>
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck">
-                <label class="form-check-label" for="defaultCheck">
-                  Check to mark as complete
-                </label>
-              </div>
-            </td>
-          </tr>
-        </tbody>
+        <tbody id="personal-goals"></tbody>
       </table>
     </main>
 
-    <footer>
-      <hr />
-      <div>My GitHub Repo:<span><a href="https://github.com/ReppinJesusChrist/startup/">Click Here</a></span></div>
+    <footer class="bg-dark text-white-50">
+      <div class="container-fluid">
+        <span class="text-reset">ReppinJesusChrist</span>
+        <a class="text-reset" href="https://github.com/ReppinJesusChrist/startup/">Github Repo</a>
+      </div>
     </footer>
 
     <script
