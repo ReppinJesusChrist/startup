@@ -28,6 +28,24 @@ apiRouter.post('/goals', (req, res) => {
   res.send(goals);
 });
 
+apiRouter.put('/goals', (req, res) => {
+  goals = req.body.goals;
+  res.send(goals);
+});
+
+/*
+apiRouter.post('/users', (req, res) => {
+  const req_user = req.body.user;
+  const req_username = user.username;
+  const req_password = user.password;
+  for (const [i, user] of users.entries()){
+    if(req_username == user.username){
+
+    }
+  }
+})
+*/
+
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
@@ -38,3 +56,4 @@ app.listen(port, () => {
 });
 
 let goals = [];
+let users = [];

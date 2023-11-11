@@ -5,7 +5,7 @@ async function updateGoalsPage(){
 
 function displayGoals(goals){
   const tableBodyEl = document.querySelector('#personal-goals');
-
+  tableBodyEl.innerHTML = "";
   if (goals.length) {
     // Update the DOM with the scores
     for (const [i, goal] of goals.entries()) {
@@ -48,11 +48,28 @@ function displayGoals(goals){
 }
 
 async function completeGoal(id){
-  debugger;
-  const goals = await getGoals();
-  let target_goal = goals[id];
-  alert (target_goal);
-  //target_goal.markComplete();
+  let goals = [];
+  try{
+    const response = await fetch('/api/goals');
+    goals = await response.json();
+  } catch {
+    alert("completeGoal.get didn't work correctly");
+  }
+
+  let target_json = goals[id];
+  let target_goal = new Goal(target_json);
+  target_goal.markComplete();
+  goals.splice(id,1,target_goal);
+
+  try{
+    const response = await fetch('/api/goals', {
+      method: 'PUT',
+      headers: {'content-type': 'application/json'},
+      body: JSON.stringify({goals: JSON.stringify(goals)})
+    });
+  } catch {
+    alert("completeGoal.post didn't work right");
+  }
   updateGoalsPage();
 }
 
@@ -70,7 +87,7 @@ async function setGoal(data){
     }
   }
 
-  const new_goal = new goal(description, difficulty, tag_arr);
+  const new_goal = new Goal("no-JSON", description, difficulty, tag_arr);
 
   try{
     const response = await fetch('/api/goals', {
@@ -104,7 +121,7 @@ async function getGoals(){
     let goals = await response.json();
     return goals;
   } catch {
-    alert("Fetch didn't work correctly");
+    alert("getGoals.get didn't work correctly");
   }
 }
 
@@ -130,15 +147,22 @@ async function addAlways(){
   }
 }
 
-class goal{
-  constructor(description = "default", difficulty = "easy", tags = []) {
-    //this.title = title;
-    this.description = description;
-    this.difficulty = difficulty;
-    this.tags = tags;
-    this.date_set = new Date().toLocaleDateString();
+class Goal{
+  constructor(jason, description = "default", difficulty = "easy", tags = [], date_set = new Date().toLocaleDateString()) {
+    if(jason == "no-JSON"){
+      //this.title = title;
+      this.description = description;
+      this.difficulty = difficulty;
+      this.tags = tags;
+      this.date_set = date_set;
+    } else {
+      this.description = jason.description;
+      this.difficulty = jason.difficulty;
+      this.tags = jason.tags;
+      this.date_set = jason.date_set;
+    }
     this.is_completed = false;
-    this.date_completed = "Not completed yet";
+    this.date_completed = "Not completed yet"; 
   }
 
   toJSON(){
@@ -147,25 +171,9 @@ class goal{
       difficulty: this.difficulty,
       tags: this.tags,
       date_set: this.date_set,
+      is_completed: this.is_completed,
       date_completed: this.date_completed
     }
-  }
-
-  toHTML(){
-    ret_string = "<td>" + this.description + "</td>" +
-      "<td>" + this.date_set + "</td>" +
-      "<td>" + this.date_completed + "</td>";
-
-    return ret_string;
-  }
-
-  printTest(){
-    console.log(title);
-    console.log(description);
-    console.log(difficulty);
-    tags.forEach(element => {
-      console.log(element);
-    });
   }
 
   markComplete(){
