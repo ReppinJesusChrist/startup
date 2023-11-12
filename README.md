@@ -11,6 +11,7 @@ A concept sketch of the "Info" tab
 A concept sketch of the "Login" tab
 ![Not Loading?](https://github.com/ReppinJesusChrist/startup/blob/main/CC_Sketch_2.png "Sketch #2")
 
+[TODO: find/redraw these concept sketches] (I accidentally deleted the files on my computer so the links don't work anymore)
 
 ### Key Features
 * An info page with links to resources both from scripture and the words of modern prophets to provide information about the nature and details of each of the core covenants offered in the Church of Jesus Christ of Latter-Day Saints
@@ -38,8 +39,9 @@ A concept sketch of the "Login" tab
 * **React** - Application will be ported to use the React framework
 
 ## HTML Deliverable
+### Overview
 For this deliverable I made (most of) the skeleton of my website
-
+### Rubric
 * HTML pages - Five HTML pages (3 fleshed out, 2 placeholders) that represent the home page, a login page, the page for setting goals, the page for accountability and tracking (unfinished), and the page for social interaction (unfinished)
 * Links - Each page links to every other page. There are also external links from the info page to other websites
 * Text - Info page contains a lot of description, all other pages have guidance and informational text
@@ -49,8 +51,9 @@ For this deliverable I made (most of) the skeleton of my website
 * WebSocket - I didn't include this yet. It will occur under the accountability tab as a real-time indication of whether your partner has completed their goals, as well as encouraging messages sent from your team. It will also occur on the social page as a blog-style list of advice and testimonials from other users that show up in real-time as they are written and posted 
 
 ## CSS deliverable
+### Overview
 For this deliverable I finished the HTML skeleton for the last two pages on my site (because I didn't get to those for the last one). I also converted all of the previous HTML to use bootstrap and added basic CSS styling to all of it which made it look a lot better!
-
+### Rubric
 * **Header, footer, and main content body** - I actually tried to manually style these with CSS but decided that I liked the default bootstrap look much more than what I was able to come up with. I'll probably adjust this again before the end but I wanted to clarify that not manually styling the header and footer was a conscious choice
 * **Navigation elements** - I dropped the underlines and changed the color for anchor elements.
 * **Responsive to window resizing** - My app looks great on all window sizes and devices. This was accomplished with a combination of bootstrap and manually implementing flex using CSS
@@ -59,13 +62,30 @@ For this deliverable I finished the HTML skeleton for the last two pages on my s
 * **Application images** - I added an image (because I also missed that in my last deliverable) and used basic bootstrap styling to make it adjust with the window
 
 ## JavaScript deliverable
+### Overview
 For this deliverable I used js to add basic functionality to the site, as well as laying the framework for storing and accessing data in the future. I also did a lot of cleaning up and expanding of the previous deliverables to make the site look nicer.
-
+### Rubric
 * **Mocked Database Input** - This is not done yet. It will be implemented on the goals page, on which new goals that are set will be stored in the database based on the information filled out in the field when the "set goal" button is pushed
 *  **Username Display** - The username is read in from the login page, stored in local memory, and displayed at the top of each page. It is unique for each user of the site
 *  **Mocked Database DOM** - This is not done yet. It will be completed by collecting the input data from the goals out of localmemory and inserting it one <tr> at a time into the table at the bottom of the page. It will also show up on the social page, on which previous comments and advice from other users over the long-term will be visible
 *  **LocalStorage** - I use localstorage in several places throughout the code and intend to add it a couple more places. I also use sessionstorage for one variable.
 *  **Realtime Data** - This isn't done yet. It will be implemented by using exactly the same visuals that are already on the "Social" page, with the slight change that they will be set to a timer.
 *  **Login Security** - This wasn't actually on the list, but I spent a lot of time on it and I'm happy with how it turned out so I'm including it here. There is fronted security based on the login form. All pages besides "info", and "login" will be greyed out and unclickable in the main menu until the user logs in. It seems like a small thing and it will probably become obsolete soon enough but I learned a lot about JS by implementing it and put a lot of work into it.
+
+
+## Service Deliverable
+### Overview
+For this deliverable I used Node.js and Express to create a basic HTTP service for my website. This uses middleware to serve up my frontend files on a local network port, and uses endpoints to store, fetch, and modify the goals set by the user
+### Rubric
+* **Frontend served up using express static middleware** - Done! The provided code from the Simon example was a huge help with this.
+* **Your frontend calls third party service endpoints** - I implemented this by calling the same image api used by Simon. I still don't fully understand how the formatting works for imported images and I realized that my knowledge of CSS and formatting isn't as solid as I thought it was so the formatting looks really bad. Nevertheless, I do actually call a third party API and the image loads successfully (ugly though it looks)
+* **Your backend provides service endpoints** I added three endpoints, all for /api/goals:
+   1. A POST to add a new goal to the stored list
+   2. A GET to fetch and return the list of goals as a JSON array
+   3. A PUT to update a goal in the stored list. Right now this is only used to mark a goal as complete, but I figured out how to add addtiional items to the request body, so it wouldn't be hard to add additional functionality to this endpoint based on additional parameters if that would be useful in the future.
+* **Your frontend calls your service endpoints** All of my endpoint calls are implemented using the fetch function. The endpoints are used on the goals page to implement the goal-setting, goal completion, and goal displaying (in a table) functionality of that page
+* **Multiple Git commits with meaningful comments** - I did a much better job on this deliverable than ever before. I'm actually starting to understand and apreciate the functionality of Git now, which makes it much easier to commit more frequently and at more natural breakpoints because it seems less arbitrary to me now
+### Other notes
+* I did a lot of retroactive work and fixing for past deliverables (html, css, and js). The details of those fixes are included in the comments for my Git Commits along the way
 
 [Link to notes file](notes.md)
