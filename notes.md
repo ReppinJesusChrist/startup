@@ -1,18 +1,40 @@
 # Important Commands
 * Command to ssh into my website: `ssh -i \Users\User\Keys/"Remember Jesus Christ.pem" ubuntu@ec2-35-174-69-205.compute-1.amazonaws.com`
-* Command to deploy files to my website: `./deployFiles.sh -k ~/Keys/Remember\ Jesus\ Christ.pem -h covenantcompanion.click -s simon` (This one works from gitBash)
-
+* Command to deploy files to my website: `./deployFiles.sh -k ~/Keys/Remember\ Jesus\ Christ.pem -h covenantcompanion.click -s startup` (This one works from gitBash)
+* Command to deploy service to my website (from Git Bash): `./deployService.sh -k ~/Keys/Remember\ Jesus\ Christ.pem -h covenantcompanion.click -s startup`
 
 # To-dos / Things to research more:
-* **Review Markup again**
-* **Study playwright more deeply** (I just don't have the mental energy to do it right now) 
+* Review Markup again
+* Study playwright more deeply
 * cache control
 * cross-site request forgery
 * When are URNs used?
 * Google V8 engine
 * Deno and Bun (Alternatives to Node.js)
+* SQL
 
 # Raw Notes by Date and Topic
+## 11/13/23
+### Storage Services
+* You should almost never store files directly on the server.
+  * "You must always assume that your server will disappear"
+  * AWS S3 is a storage service specifically designed to support production storage and delivery of files. **It's not required for this class**, but it's an option if I decide to expand this project later
+### Data Services
+There are two general types of databases: SQL and NoSQL.
+* NoSQL services specialize in different types of data:
+  * MySQL = relational queries (???)
+  * Neo4J = Graph based data
+  * InfluxDB = Time series data
+* Here's an idea for player info storage:
+![](https://github.com/ReppinJesusChrist/my-images/blob/main/player_db_idea.png)
+#### MongoDB (Used for this class)
+* 
+* Inserting data
+* Querying data
+* 
+### Websocket??
+* Ping Pong?!
+* (Maybe?) Can be used to automatically reload the browser when the source code is changed!
 ## 11/06/23
 ### Test Driven Development
 "The great thing about test driven development (TDD) is that you can actually write your tests first and then write your code based upon the design represented by the tests. When your tests pass you know your code is complete. Additionally, when you make later modifications to your code you can simply run your tests again. If they pass then you can be confident that your code is still working without having to manually test everything yourself. With systems that have hundreds of endpoints and hundreds of thousands of lines of code, TDD becomes an indispensable part of the development process."
