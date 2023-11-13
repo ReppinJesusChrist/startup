@@ -11,27 +11,24 @@
 * When are URNs used?
 * Google V8 engine
 * Deno and Bun (Alternatives to Node.js)
+* SQL
 
 # Raw Notes by Date and Topic
 ## 11/13/23
+### Storage Services
+* You should almost never store files directly on the server.
+  * "You must always assume that your server will disappear"
+  * AWS S3 is a storage service specifically designed to support production storage and delivery of files. **It's not required for this class**, but it's an option if I decide to expand this project later
 ### Data Services
-* Different services specialize in different types of data:
+There are two general types of databases: SQL and NoSQL.
+* NoSQL services specialize in different types of data:
   * MySQL = relational queries (???)
   * Neo4J = Graph based data
   * InfluxDB = Time series data
 * Here's an idea for player info storage:
 ![](https://github.com/ReppinJesusChrist/my-images/blob/main/player_db_idea.png)
 #### MongoDB (Used for this class)
-* .gitignore update:
-  * gitignore
-    * dbconfig.json
-    * node_modules
-    * .DS_Store
-    * .vscode
-* Get started
-  * Download
-  * Make account
-  * Store Credentials
+* 
 * Inserting data
 * Querying data
 * 
