@@ -4,8 +4,8 @@
 * Command to deploy service to my website (from Git Bash): `./deployService.sh -k ~/Keys/Remember\ Jesus\ Christ.pem -h covenantcompanion.click -s startup`
 
 # To-dos / Things to research more:
-* **Review Markup again**
-* **Study playwright more deeply** (I just don't have the mental energy to do it right now) 
+* Review Markup again
+* Study playwright more deeply
 * cache control
 * cross-site request forgery
 * When are URNs used?
@@ -13,6 +13,31 @@
 * Deno and Bun (Alternatives to Node.js)
 
 # Raw Notes by Date and Topic
+## 11/13/23
+### Data Services
+* Different services specialize in different types of data:
+  * MySQL = relational queries (???)
+  * Neo4J = Graph based data
+  * InfluxDB = Time series data
+* Here's an idea for player info storage:
+![](https://github.com/ReppinJesusChrist/my-images/blob/main/player_db_idea.png)
+#### MongoDB (Used for this class)
+* .gitignore update:
+  * gitignore
+    * dbconfig.json
+    * node_modules
+    * .DS_Store
+    * .vscode
+* Get started
+  * Download
+  * Make account
+  * Store Credentials
+* Inserting data
+* Querying data
+* 
+### Websocket??
+* Ping Pong?!
+* (Maybe?) Can be used to automatically reload the browser when the source code is changed!
 ## 11/06/23
 ### Test Driven Development
 "The great thing about test driven development (TDD) is that you can actually write your tests first and then write your code based upon the design represented by the tests. When your tests pass you know your code is complete. Additionally, when you make later modifications to your code you can simply run your tests again. If they pass then you can be confident that your code is still working without having to manually test everything yourself. With systems that have hundreds of endpoints and hundreds of thousands of lines of code, TDD becomes an indispensable part of the development process."
