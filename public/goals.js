@@ -1,5 +1,7 @@
+const NUM_GOALS_TO_DISPLAY = 'all';
+
 async function updateGoalsPage(){
-  goals = await getGoals();
+  const goals = await getGoals(NUM_GOALS_TO_DISPLAY);
   displayGoals(goals);
 }
 
@@ -147,3 +149,5 @@ class Goal{
     }
   }
 }
+
+module.exports = { NUM_GOALS_TO_DISPLAY };

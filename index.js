@@ -1,3 +1,5 @@
+const NUM_GOALS_TO_DISPLAY = 'all';
+
 const express = require('express');
 const app = express();
 const DB = require('./database');
@@ -19,37 +21,23 @@ app.use(express.static('public'));
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-// GetGoals
+// Fetch the entire list of goals
 apiRouter.get('/goals', async (_req, res) => {
-  const goals = await DB.getNumGoals('all');
+  const goals = await DB.getNumGoals(NUM_GOALS_TO_DISPLAY);
   res.send(goals);
 });
 
-// SubmitScore
+// Add a new goal
 apiRouter.post('/goal', async (req, res) => {
   DB.addGoal(req.body);
-  const goals = DB.getNumGoals('all');
-  res.send(goals);
+  res.send("Success!");
 });
 
-//mark a goal as complete
+//Mark a goal as complete
 apiRouter.put('/goal', async (req, res) => {
   DB.findAndCompleteGoal(req.body.id);
   res.send("Success!!!");
 });
-
-/*
-apiRouter.post('/users', (req, res) => {
-  const req_user = req.body.user;
-  const req_username = user.username;
-  const req_password = user.password;
-  for (const [i, user] of users.entries()){
-    if(req_username == user.username){
-
-    }
-  }
-})
-*/
 
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
