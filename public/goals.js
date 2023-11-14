@@ -25,7 +25,7 @@ function displayGoals(goals){
         dateCompTdEl.innerHTML = 'Not yet completed.' +
         '<div>' +
           '<input class="form-check-input" type="checkbox" value="" id="complete-check-'+(i + 1)+
-          '" onchange="completeGoal('+i+')">' +
+          '" onchange="completeGoal('+goal.id+')">' +
           '<label class="form-check-label" for="defaultCheck">' +
             'Check to mark as complete' +
           '</label>' +
@@ -48,27 +48,17 @@ function displayGoals(goals){
 }
 
 async function completeGoal(id){
-  let goals = [];
   try{
-    const response = await fetch('/api/goals');
-    goals = await response.json();
-  } catch {
-    alert("completeGoal.get didn't work correctly");
-  }
-
-  let target_json = goals[id];
-  let target_goal = new Goal(target_json);
-  target_goal.markComplete();
-  goals.splice(id,1,target_goal);
-
-  try{
-    const response = await fetch('/api/goals', {
+    const response = await fetch('/api/goal', {
       method: 'PUT',
       headers: {'content-type': 'application/json'},
-      body: JSON.stringify({goals: JSON.stringify(goals)})
+      body: JSON.stringify({
+        //goals: JSON.stringify(goals),
+        id: id,
+      })
     });
   } catch {
-    alert("completeGoal.post didn't work right");
+    alert("completeGoal.PUT didn't work right");
   }
   updateGoalsPage();
 }
@@ -90,7 +80,7 @@ async function setGoal(data){
   const new_goal = new Goal("no-JSON", description, difficulty, tag_arr);
 
   try{
-    const response = await fetch('/api/goals', {
+    const response = await fetch('/api/goal', {
       method: 'POST',
       headers: {'content-type': 'application/json'},
       body: JSON.stringify(new_goal)
@@ -125,28 +115,6 @@ async function getGoals(){
   }
 }
 
-async function addAlways(){
-  let goals = [];
-  try{
-    const response = await fetch('/api/goals');
-    goals = await response.json();
-    const add_string = 'Always';
-    goals.push(add_string);
-  } catch {
-    alert("addAlways.get didn't work correctly");
-  }
-
-  try{
-    const response = await fetch('/api/goals', {
-      method: 'POST',
-      headers: {'content-type': 'application/json'},
-      body: JSON.stringify(goals),
-    });
-  } catch {
-    alert("addAlways.post didn't work right");
-  }
-}
-
 class Goal{
   constructor(jason, description = "default", difficulty = "easy", tags = [], date_set = new Date().toLocaleDateString()) {
     if(jason == "no-JSON"){
@@ -155,11 +123,13 @@ class Goal{
       this.difficulty = difficulty;
       this.tags = tags;
       this.date_set = date_set;
+      this.id = Math.floor(Math.random() * 10000);
     } else {
       this.description = jason.description;
       this.difficulty = jason.difficulty;
       this.tags = jason.tags;
       this.date_set = jason.date_set;
+      this.id = jason.id;
     }
     this.is_completed = false;
     this.date_completed = "Not completed yet"; 
@@ -172,13 +142,8 @@ class Goal{
       tags: this.tags,
       date_set: this.date_set,
       is_completed: this.is_completed,
-      date_completed: this.date_completed
+      date_completed: this.date_completed,
+      id: this.id
     }
   }
-
-  markComplete(){
-    this.is_completed = true;
-    this.date_completed = new Date().toLocaleDateString();
-  }
-
 }

@@ -1,6 +1,8 @@
-const cookieParser = require('cookie-parser');
 const express = require('express');
 const app = express();
+const DB = require('./database');
+
+const cookieParser = require('cookie-parser');
 
 // The service port. In production the frontend code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -18,19 +20,22 @@ const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // GetGoals
-apiRouter.get('/goals', (_req, res) => {
+apiRouter.get('/goals', async (_req, res) => {
+  const goals = await DB.getNumGoals('all');
   res.send(goals);
 });
 
 // SubmitScore
-apiRouter.post('/goals', (req, res) => {
-  goals.push(req.body);
+apiRouter.post('/goal', async (req, res) => {
+  DB.addGoal(req.body);
+  const goals = DB.getNumGoals('all');
   res.send(goals);
 });
 
-apiRouter.put('/goals', (req, res) => {
-  goals = req.body.goals;
-  res.send(goals);
+//mark a goal as complete
+apiRouter.put('/goal', async (req, res) => {
+  DB.findAndCompleteGoal(req.body.id);
+  res.send("Success!!!");
 });
 
 /*
@@ -54,6 +59,3 @@ app.use((_req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
-let goals = [];
-let users = [];
