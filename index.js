@@ -1,8 +1,9 @@
-const NUM_GOALS_TO_DISPLAY = 'all';
-
 const express = require('express');
 const app = express();
 const DB = require('./database');
+const Goals = require('./public/goals.js');
+
+const NUM_GOALS_TO_DISPLAY = Goals.NUM_GOALS_TO_DISPLAY;
 
 const cookieParser = require('cookie-parser');
 
