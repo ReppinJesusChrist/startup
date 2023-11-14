@@ -1,5 +1,5 @@
 # Important Commands
-* Command to ssh into my website: `ssh -i \Users\User\Keys/"Remember Jesus Christ.pem" ubuntu@ec2-35-174-69-205.compute-1.amazonaws.com`
+* Command to ssh into my website: `ssh -i ~/Keys/Remember\ Jesus\ Christ.pem ubuntu@ec2-35-174-69-205.compute-1.amazonaws.com`
 * Command to deploy files to my website: `./deployFiles.sh -k ~/Keys/Remember\ Jesus\ Christ.pem -h covenantcompanion.click -s startup` (This one works from gitBash)
 * Command to deploy service to my website (from Git Bash): `./deployService.sh -k ~/Keys/Remember\ Jesus\ Christ.pem -h covenantcompanion.click -s startup`
 
