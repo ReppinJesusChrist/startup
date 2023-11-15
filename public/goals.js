@@ -150,4 +150,4 @@ class Goal{
   }
 }
 
-module.exports = { NUM_GOALS_TO_DISPLAY };
+//module.exports = { NUM_GOALS_TO_DISPLAY };
