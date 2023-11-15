@@ -88,4 +88,19 @@ For this deliverable I used Node.js and Express to create a basic HTTP service f
 ### Other notes
 * I did a lot of retroactive work and fixing for past deliverables (html, css, and js). The details of those fixes are included in the comments for my Git Commits along the way
 
+
+## DataBase Deliverable
+### Overview
+For this deliverable I created an account on MongoDB Atlas, linked it to my startup project, and created endpoints to store, retrieve and modify goals persistently using the database instead of just using localStorage
+### Rubric
+* **MongoDB Atlas database created** - Done! I think techically I actually have 3 databases: One called "rental" for the example, one called "simon" for the simon-db submission, and the one for my own startup. They're just all in my same cluster.
+* **Provides backend endpoints for manipulating application data** - As mentioned above, I have modified three backend endpoints to access my database. These are:
+   1. Modified POST to add a new goal to the DB
+   2. Modified GET to return a given number of goals from the DB. (I'm trying to figure out how to use the endpoint URL to dynamically select how many to return, but for now I just use a constant that's shared between files)
+   3. Modified PUT to find and modify a goal in the DB by ID to mark it as complete when the checkbox is selected in the table. I'm actually really proud of this feature. It was tricky to get working and it ties together basically every unit in the class except CSS in one way or another which is really cool.
+* **Stores application data in MongoDB** - It feels like this overlaps a lot with the previous rubric item. All of the endpoints mentioned above work as intended and there are currently test goals stored in the Database which I created and marked as complete using the UI on my website so I think that fulfills this requirement. 
+* **Multiple Git commits with meaningful comments** - It's only been 2-3 days since the last deliverable so there haven't been that many commits just because this deliverable didn't take that much work. I think there were at least a couple though, and I tried to make the comments meaningful.
+### Other notes
+* Like I said above, this one didn't take that long so there wasn't much time for retroactive work. I think I did some cleanup of previous code in goals.js as I came across inefficient or deprecated functions, and test code that I'd forgotten to remove from before but that's about it
+
 [Link to notes file](notes.md)

@@ -12,8 +12,29 @@
 * Google V8 engine
 * Deno and Bun (Alternatives to Node.js)
 * SQL
+* AWS Cognito || Google Firebase (3rd party authorization services)
 
 # Raw Notes by Date and Topic
+## 11/14/23
+### Authorization Services
+* Generally monitored by storing a token on a person's computer in the form of a cookie
+* Each user generally has a role/roles which determine which parts of the site they are allowed to access
+* SSO (single sign-on) is what allows me to "Sign-in with google account" on other sites
+### Account Creation and Login
+#### Endpoint Design
+* Three general endpoints:
+  1. Create (for registering)
+     * POST
+     * Takes an email and password
+     * Returns a cookie containing an auth token
+     * If the email exists returns status code 409 (conflict)   
+  2. login (for logging-in)
+     * POST
+     * Takes an email and password
+     * Returns a cookie containing the auth token and user ID
+     * If email doesn't exist, return status code 401 (unauthorized)
+  3. getMe (for giving info ~ the current user)
+     * Uses the stored auth token to look up and return info about the currently authenticated user
 ## 11/13/23
 ### Storage Services
 * You should almost never store files directly on the server.
