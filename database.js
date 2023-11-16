@@ -66,8 +66,9 @@ async function findAndCompleteGoal(id){
 
 module.exports = { 
   getUser,
-  getUserByToken,
+  //getUserByToken,
   createUser,
+  userCollection,
   addGoal, 
   getNumGoals, 
   findAndCompleteGoal,

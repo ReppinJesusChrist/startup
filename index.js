@@ -4,10 +4,10 @@ const DB = require('./database');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 
-const Goals = require('./public/goals.js');
-
-//const NUM_GOALS_TO_DISPLAY = Goals.NUM_GOALS_TO_DISPLAY;
+// Don't change this without also changing the constant in database.js (I tried to link them but it didn't work [TODO: Try again])
 const NUM_GOALS_TO_DISPLAY = 'all';
+
+const authCookieName = 'token';
 
 // The service port. In production the frontend code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -24,6 +24,16 @@ app.use(express.static('public'));
 // Router for service endpoints
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
+
+app.get('/user/me', async (req, res) => {
+  authToken = req.cookies['token'];
+  const user = await DB.userCollection.findOne({ token: authToken});
+  if(user) {
+    res.send({ email: user.email });
+    return;
+  }
+  res.status(401).send({ msdg: 'Unauthorized' });
+})
 
 // CreateAuth token for a new user
 apiRouter.post('/auth/create', async (req, res) => {
@@ -54,6 +64,7 @@ apiRouter.post('/auth/login', async (req, res) => {
   res.status(401).send({ msg: 'Unauthorized' });
 });
 
+/*
 // DeleteAuth token if stored in cookie
 apiRouter.delete('/auth/logout', (_req, res) => {
   res.clearCookie(authCookieName);
@@ -70,6 +81,7 @@ apiRouter.get('/user/:email', async (req, res) => {
   }
   res.status(404).send({ msg: 'Unknown' });
 });
+*/
 
 // Fetch the entire list of goals
 apiRouter.get('/goals', async (_req, res) => {

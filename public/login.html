@@ -61,8 +61,10 @@
       <h3>Log-in below to gain access to goal setting, point tracking, accountability
         partners, and idea/experience sharing with other users
       </h3>
-
-      <form onsubmit="login()" class="bg-secondary">
+      <!--
+      <button onclick="loginOrCreate()" class="btn btn-primary">Test Button</button>
+      -->
+      <form onsubmit="loginOrCreate(event);" class="bg-secondary">
         <div class="mb-3">
           <label for="username" class="form-label">Username</label>
           <input type="text" class="form-control" id="username">
@@ -89,6 +91,7 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"
     ></script>
+
     <script type="text/javascript" src="login.js"></script>
     <script type="text/javascript" src="common.js"></script> 
   </body>
