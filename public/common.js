@@ -1,10 +1,15 @@
+(async () => {
+  checkNavbarUnlock();
+  checkDisplayUsername();
+})();
+
 function updateCommonPage(){
   checkNavbarUnlock();
   checkDisplayUsername();
 }
 
 function checkDisplayUsername() {
-  const displayName = localStorage.getItem("username");
+  const displayName = localStorage.getItem("userEmail");
   if(displayName){
     const headerEl = document.querySelector(".navbar-brand");
     headerEl.innerHTML = '<strong>Covenant Companion</strong> - Currently Logged-in as: ' + displayName;
@@ -12,7 +17,7 @@ function checkDisplayUsername() {
 }
 
 function checkNavbarUnlock() {
-  const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
   if(isLoggedIn){
     const elem = document.querySelector("#security-navmenu");
     if(elem){

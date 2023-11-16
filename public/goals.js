@@ -1,5 +1,9 @@
 const NUM_GOALS_TO_DISPLAY = 'all';
 
+(() => {
+  updateGoalsPage();
+})();
+
 async function updateGoalsPage(){
   const goals = await getGoals(NUM_GOALS_TO_DISPLAY);
   displayGoals(goals);

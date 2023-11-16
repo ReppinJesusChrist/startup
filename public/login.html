@@ -16,7 +16,7 @@
     />
   </head>
   
-  <body class="bg-dark text-light" onload="updateCommonPage()">
+  <body class="bg-dark text-light">
     <header class="container-fluid">
       <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
@@ -56,29 +56,45 @@
       </nav>
     </header>
 
-    <main class="container-fluid bg-secondary text-center">   
-      <h2>Congrats!!! You found the Log-in page!</h2>
-      <h3>Log-in below to gain access to goal setting, point tracking, accountability
-        partners, and idea/experience sharing with other users
-      </h3>
-      <!--
-      <button onclick="loginOrCreate()" class="btn btn-primary">Test Button</button>
-      -->
-      <form onsubmit="loginOrCreate(event);" class="bg-secondary">
-        <div class="mb-3">
-          <label for="username" class="form-label">Username</label>
-          <input type="text" class="form-control" id="username">
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password">
-        </div>
-        <div class="mb-3 form-check">
-          <label class="form-check-label" for="register">New User? Check box to register!</label>
-          <input type="checkbox" class="form-check-input" id="register">
-        </div>
-        <button type="submit" class="btn btn-primary">Log-in/Register</button>
-      </form>
+    <main class="container-fluid bg-secondary text-center">
+      <div id="NotLoggedIn" style="display: none">
+        <h1>You found the Log-in page. Good Job!</h1>
+        <h2>
+          Log-in below to gain access to goal setting, point tracking, accountability
+          partners, and idea/experience sharing with other users
+        </h2>
+        <form onsubmit="loginOrCreate(event);" class="bg-secondary">
+          <div class="input-group mb-3">
+            <span class="input-group-text">@</span>
+            <input class="form-control" type="email" id="userEmail" placeholder="your@email.com" />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">🔒</span>
+            <input class="form-control" type="password" id="userPassword" placeholder="password" />
+          </div>
+          <div class="mb-3 form-check">
+            <label class="form-check-label" for="register">New User? Check box to register!</label>
+            <input type="checkbox" class="form-check-input" id="register">
+          </div>
+          <button type="submit" class="btn btn-primary">Log-in/Register</button>
+        </form>
+      </div>
+
+      <!-- Displayed while logged-in -->
+      <div id="LoggedIn" style="display: none">
+        <h1>You Logged-in!!! Great Job!</h1>
+        <h2>
+          <div>
+            You now have access to goal setting, point tracking, accountability
+            partners, and idea/experience sharing with other users.
+          </div> 
+          <div>
+            Click the button below to log-out, or use the nav menu to look around the site.
+          </div>
+        </h2>
+        <div id="login-success-message"></div>
+        <button type="button" class="btn btn-danger btn-lg" onclick="logout()">Logout</button>
+      </div>
     </main>
 
     <footer>
