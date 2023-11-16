@@ -42,13 +42,13 @@ A concept sketch of the "Login" tab
 ### Overview
 For this deliverable I made (most of) the skeleton of my website
 ### Rubric
-* HTML pages - Five HTML pages (3 fleshed out, 2 placeholders) that represent the home page, a login page, the page for setting goals, the page for accountability and tracking (unfinished), and the page for social interaction (unfinished)
-* Links - Each page links to every other page. There are also external links from the info page to other websites
-* Text - Info page contains a lot of description, all other pages have guidance and informational text
-* Images - I actually do know how to do images but I waited until way too late to start this so I haven't added any yet. There will eventually be a picture by each of the covenant descriptions on the info page
-* Login - Text input boxes for username and password with buttons for "login" and "register"
-* Database - The goals in the "personal goals" section will be pulled from the database, as will the completion status and date
-* WebSocket - I didn't include this yet. It will occur under the accountability tab as a real-time indication of whether your partner has completed their goals, as well as encouraging messages sent from your team. It will also occur on the social page as a blog-style list of advice and testimonials from other users that show up in real-time as they are written and posted 
+* **HTML pages** - Five HTML pages (3 fleshed out, 2 placeholders) that represent the home page, a login page, the page for setting goals, the page for accountability and tracking (unfinished), and the page for social interaction (unfinished)
+* **Links** - Each page links to every other page. There are also external links from the info page to other websites
+* **Text** - Info page contains a lot of description, all other pages have guidance and informational text
+* **Images** - I actually do know how to do images but I waited until way too late to start this so I haven't added any yet. There will eventually be a picture by each of the covenant descriptions on the info page
+* **Login** - Text input boxes for username and password with buttons for "login" and "register"
+* **Database** - The goals in the "personal goals" section will be pulled from the database, as will the completion status and date
+* **WebSocket** - I didn't include this yet. It will occur under the accountability tab as a real-time indication of whether your partner has completed their goals, as well as encouraging messages sent from your team. It will also occur on the social page as a blog-style list of advice and testimonials from other users that show up in real-time as they are written and posted 
 
 ## CSS deliverable
 ### Overview
@@ -86,7 +86,7 @@ For this deliverable I used Node.js and Express to create a basic HTTP service f
 * **Your frontend calls your service endpoints** All of my endpoint calls are implemented using the fetch function. The endpoints are used on the goals page to implement the goal-setting, goal completion, and goal displaying (in a table) functionality of that page
 * **Multiple Git commits with meaningful comments** - I did a much better job on this deliverable than ever before. I'm actually starting to understand and apreciate the functionality of Git now, which makes it much easier to commit more frequently and at more natural breakpoints because it seems less arbitrary to me now
 ### Other notes
-* I did a lot of retroactive work and fixing for past deliverables (html, css, and js). The details of those fixes are included in the comments for my Git Commits along the way
+I did a lot of retroactive work and fixing for past deliverables (html, css, and js). The details of those fixes are included in the comments for my Git Commits along the way
 
 
 ## DataBase Deliverable
@@ -100,7 +100,23 @@ For this deliverable I created an account on MongoDB Atlas, linked it to my star
    3. Modified PUT to find and modify a goal in the DB by ID to mark it as complete when the checkbox is selected in the table. I'm actually really proud of this feature. It was tricky to get working and it ties together basically every unit in the class except CSS in one way or another which is really cool.
 * **Stores application data in MongoDB** - It feels like this overlaps a lot with the previous rubric item. All of the endpoints mentioned above work as intended and there are currently test goals stored in the Database which I created and marked as complete using the UI on my website so I think that fulfills this requirement. 
 * **Multiple Git commits with meaningful comments** - It's only been 2-3 days since the last deliverable so there haven't been that many commits just because this deliverable didn't take that much work. I think there were at least a couple though, and I tried to make the comments meaningful.
-### Other notes
-* Like I said above, this one didn't take that long so there wasn't much time for retroactive work. I think I did some cleanup of previous code in goals.js as I came across inefficient or deprecated functions, and test code that I'd forgotten to remove from before but that's about it
+### Other Notes
+Like I said above, this one didn't take that long so there wasn't much time for retroactive work. I think I did some cleanup of previous code in goals.js as I came across inefficient or deprecated functions, and test code that I'd forgotten to remove from before but that's about it
+
+
+## Login Deliverable
+### Overview
+For this deliverable I expanded on my earlier implementation of security from the JavaScript deliverable. This involved polishing and debugging the frontend functions I already had, as well as linking these to new backend service calls and introducing backend security using secureApiRouter
+### Rubric
+* **Supports new user registration** - There is a check box on the login page which allows a user to indicate that they are registering a new account. This functionality works as intended.
+* **Supports existing user authentication** - If that box is not checked, the same form submit button uses the provided email and password to make a login request instead of a registration request. This also works as intended.
+* **Stores and retrieves credentials in MongoDB** - The registration function stores the user email as a new database entry unless the email matches one that's already associated with an existing user, in which case it rejects the request. Attempts to login are also verified using encrypted passwords and auth tokens, both of which are stored in the database.
+* **Restricts application functionality based upon authentication** - This is done on both the frontend and the backend:
+   * **Frontend** - In the dropdown menu, all pages which shouldn't be accessible without logging in are greyed out and unclickable. As soon as the user logs in successfully these links become operable. The links also remain unlocked if the page is closed and reopened, as long as the user remains signed-in
+   * **Backend** - All pages that aren't supposed to be accessible without logging in have a function that runs automatically when the page is loaded which verifies that the current user in in the database and is properly authenticated. If this isn't true it alerts the user that they aren't allowed to be on that site, tells them to login, and automatically redirects them to the login page. Additionally, I implemented the same backend security used in the simon example, which uses a secureApiRouter to block any endpoint requests coming from unauthorized users. 
+* **Multiple Git commits with meaningful comments** - I noticed that more official git repositories use special syntax (add(), modify(), etc.) to label their commits. I haven't figured out how that works exactly yet, but I've started trying to use a similar format in some of my commit comments recently. Maybe I'll look that up before the next deliverable. We'll see.
+
+### Other Notes
+The only feature that's relevant to this deliverable that I didn't implement is storing goals as an array associated with the user that created them. It isn't included on the rubric which is why I'm submitting now instead of waiting until I finish adding it, but it does seem like a very important part of the functionality of my website so I'll try hard to add it soon. (Who knows, maybe if I have time it'll be added by the time you grade this. Only time will tell)  
 
 [Link to notes file](notes.md)
