@@ -36,7 +36,6 @@ async function createUser(email, password) {
     token: uuid.v4(),
   };
   await userCollection.insertOne(user);
-
   return user;
 }
 
@@ -66,7 +65,7 @@ async function findAndCompleteGoal(id){
 
 module.exports = { 
   getUser,
-  //getUserByToken,
+  getUserByToken,
   createUser,
   userCollection,
   addGoal, 

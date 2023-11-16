@@ -60,6 +60,7 @@ async function Register(body){
   } else {
     alert('Registration failed. Error Message: ' + JSON.stringify(data.msg));
   }
+  window.location.reload();
 }
 
 function logout() {
@@ -68,6 +69,16 @@ function logout() {
   fetch(`/api/auth/logout`, {
     method: 'delete',
   }).then(() => (window.location.reload()));
+}
+
+async function getUser(email) {
+  // See if we have a user with the given email.
+  const response = await fetch(`/api/user/${email}`);
+  if (response.status === 200) {
+    return response.json();
+  }
+
+  return null;
 }
 
 function setDisplay(controlId, display) {

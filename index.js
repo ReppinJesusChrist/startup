@@ -21,6 +21,9 @@ app.use(cookieParser());
 // Serve up the frontend static content hosting
 app.use(express.static('public'));
 
+// Trust headers that are forwarded from the proxy so we can determine IP addresses
+app.set('trust proxy', true);
+
 // Router for service endpoints
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
@@ -75,27 +78,50 @@ apiRouter.get('/user/:email', async (req, res) => {
   const user = await DB.getUser(req.params.email);
   if (user) {
     const token = req?.cookies.token;
+    if(!(token === user.token)){
+      res.status(401).send({ msg: "Incorrect Token" });
+      return;
+    }
     res.send({ email: user.email, authenticated: token === user.token });
     return;
   }
   res.status(404).send({ msg: 'Unknown' });
 });
 
+// secureApiRouter verifies credentials for endpoints
+var secureApiRouter = express.Router();
+apiRouter.use(secureApiRouter);
+
+secureApiRouter.use(async (req, res, next) => {
+  authToken = req.cookies[authCookieName];
+  const user = await DB.getUserByToken(authToken);
+  if (user) {
+    next();
+  } else {
+    res.status(401).send({ msg: 'Unauthorized' });
+  }
+});
+
+/*
+secureApiRouter.get('/verify', async (_req, res) => {
+  res.send({msg: 'user is legit'});
+})
+*/
 
 // Fetch the entire list of goals
-apiRouter.get('/goals', async (_req, res) => {
+secureApiRouter.get('/goals', async (_req, res) => {
   const goals = await DB.getNumGoals(NUM_GOALS_TO_DISPLAY);
   res.send(goals);
 });
 
 // Add a new goal
-apiRouter.post('/goal', async (req, res) => {
+secureApiRouter.post('/goal', async (req, res) => {
   DB.addGoal(req.body);
   res.send("Success!");
 });
 
 //Mark a goal as complete
-apiRouter.put('/goal', async (req, res) => {
+secureApiRouter.put('/goal', async (req, res) => {
   DB.findAndCompleteGoal(req.body.id);
   res.send("Success!!!");
 });
