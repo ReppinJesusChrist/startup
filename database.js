@@ -34,33 +34,45 @@ async function createUser(email, password) {
     email: email,
     password: passwordHash,
     token: uuid.v4(),
+    goals: [],
   };
   await userCollection.insertOne(user);
   return user;
 }
 
-async function addGoal(goal){
-  const result = await goalCollection.insertOne(goal);
-  return result;
+async function addGoal(goal, u_email){
+  let userTest = await userCollection.findOne({email : u_email});
+  let goals = userTest.goals;
+  goals.push(JSON.parse(goal));
+  await userCollection.findOneAndUpdate(
+    { email : u_email },
+    { $set : { goals : goals }}
+  );
+  userTest = await userCollection.findOne({email : u_email});
 }
 
-function getNumGoals(num) {
-  const query = {};
-  let options = { limit: num };
-  if(num == 'all'){
-    options = {};
+async function getUserGoals(email, num) {
+  const query = { email: email };
+  const user = await userCollection.findOne(query);
+  let goals = [];
+  if(num = 'all') num = user.goals.length;
+  for(let i = 0; i < num; ++i){
+    goals.push(user.goals[i]);
   }
-  //options.sort = { date_set: -1} [TODO: Debug this]
-  const cursor = goalCollection.find(query, options);
-  return cursor.toArray();
+  return goals;
 }
 
-async function findAndCompleteGoal(id){
-  const query = { id: id};
+async function findAndCompleteGoal(email, id){
+  const query = { email: email, "goals.id": id};
+  let user = await userCollection.findOne(query);
   const update = { 
-    $set: { is_completed: true, date_completed: new Date().toLocaleDateString() },
+    $set: { 
+      "goals.$.is_completed" : true, 
+      "goals.$.date_completed" : new Date().toLocaleDateString() 
+    },
   };
-  await goalCollection.updateOne(query, update); 
+  await userCollection.updateOne(query, update);
+  user = await userCollection.findOne(query);
 }
 
 module.exports = { 
@@ -69,6 +81,6 @@ module.exports = {
   createUser,
   userCollection,
   addGoal, 
-  getNumGoals, 
+  getUserGoals, 
   findAndCompleteGoal,
 };

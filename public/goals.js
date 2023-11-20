@@ -1,9 +1,12 @@
-const NUM_GOALS_TO_DISPLAY = 'all';
-
 (() => {
   securityCheck();
   updateGoalsPage();
 })();
+
+async function getCurrentUser(){
+  email = localStorage.getItem('userEmail');
+  return Db.getUser(email);
+}
 
 async function securityCheck(){
   const userEmail = localStorage.getItem('userEmail');
@@ -17,7 +20,7 @@ async function securityCheck(){
 }
 
 async function updateGoalsPage(){
-  const goals = await getGoals(NUM_GOALS_TO_DISPLAY);
+  const goals = await getGoals(localStorage.getItem('userEmail'));
   displayGoals(goals);
 }
 
@@ -66,12 +69,12 @@ function displayGoals(goals){
 }
 
 async function completeGoal(id){
+  const email = localStorage.getItem('userEmail');
   try{
-    const response = await fetch('/api/goal', {
+    const response = await fetch(`/api/goal/${email}`, {
       method: 'PUT',
       headers: {'content-type': 'application/json'},
       body: JSON.stringify({
-        //goals: JSON.stringify(goals),
         id: id,
       })
     });
@@ -101,32 +104,22 @@ async function setGoal(data){
     const response = await fetch('/api/goal', {
       method: 'POST',
       headers: {'content-type': 'application/json'},
-      body: JSON.stringify(new_goal)
+      body: JSON.stringify({ 
+        goal: JSON.stringify(new_goal),
+        email: localStorage.getItem('userEmail'),
+      })
     });
-    
+    console.log(response.json());
     //const goals = await response.json();
   } catch {
     alert("setGoal.post didn't work right");
   }
-
-  /*
-  console.log(localStorage.getItem("goal_arr"));
-  if(localStorage.getItem("goal_arr") == "[object Object]" 
-      || localStorage.getItem("goal_arr") == null){
-    localStorage.setItem("goal_arr", JSON.stringify([]));
-  }
-  let goal_arr = JSON.parse(localStorage.getItem("goal_arr"));
-  goal_arr.unshift(new_goal);
-  localStorage.setItem("goal_arr", JSON.stringify(goal_arr));
-  localStorage.setItem("testGoal", JSON.stringify(new_goal));
-  */  
-
 }
 
-async function getGoals(){
+async function getGoals(email){
   try{
-    const response = await fetch('/api/goals');
-    let goals = await response.json();
+    const response = await fetch(`/api/goals/${email}`);
+    const goals = await response.json();
     return goals;
   } catch {
     alert("getGoals.get didn't work correctly");

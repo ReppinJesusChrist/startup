@@ -109,20 +109,20 @@ secureApiRouter.get('/verify', async (_req, res) => {
 */
 
 // Fetch the entire list of goals
-secureApiRouter.get('/goals', async (_req, res) => {
-  const goals = await DB.getNumGoals(NUM_GOALS_TO_DISPLAY);
-  res.send(goals);
+secureApiRouter.get(`/goals/:email`, async (_req, res) => {
+  const goals = await DB.getUserGoals(_req.params.email, NUM_GOALS_TO_DISPLAY);
+  res.send(JSON.stringify(goals));
 });
 
 // Add a new goal
 secureApiRouter.post('/goal', async (req, res) => {
-  DB.addGoal(req.body);
+  DB.addGoal(req.body.goal, req.body.email);
   res.send("Success!");
 });
 
 //Mark a goal as complete
-secureApiRouter.put('/goal', async (req, res) => {
-  DB.findAndCompleteGoal(req.body.id);
+secureApiRouter.put('/goal/:email', async (req, res) => {
+  DB.findAndCompleteGoal(req.params.email, req.body.id);
   res.send("Success!!!");
 });
 
