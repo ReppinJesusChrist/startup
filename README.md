@@ -119,4 +119,20 @@ For this deliverable I expanded on my earlier implementation of security from th
 ### Other Notes
 The only feature that's relevant to this deliverable that I didn't implement is storing goals as an array associated with the user that created them. It isn't included on the rubric which is why I'm submitting now instead of waiting until I finish adding it, but it does seem like a very important part of the functionality of my website so I'll try hard to add it soon. (Who knows, maybe if I have time it'll be added by the time you grade this. Only time will tell)  
 
+
+## Websocket Deliverable
+### Overview
+For this deliverable I added support for realtime communication between users on the backend of my website and used it on the frontend to create a chat feature in the Social tab to allow users to interact with each other in real time.
+### Rubric
+* Backend listens for WebSocket connection: Done!
+* Frontend makes WebSocket connection: This is done (and announced to the user) when they open the social tab
+* Data sent over WebSocket connection: This is done through the messages sent by users in the chat window
+* WebSocket data displayed in the application interface: This is done in the chat window on the Social Page by displaying the messages of other users
+### Other Notes
+There are at least two features that I know I want to add relative to this deliverable but haven't:
+1. Real-time notifications to other users when someone logs in, logs out, or completes a goal
+2. A chat log to store the past ~20 messages and display them to anyone who joins the chat so there's some persistant log of activity and people can communicate somewhat without having to be logged-on while the other person is chatting
+
+There is also a bug that I know of, where the site says that users are logged in between sessions but doesn't actually allow them access much of the site unless they log out and then back in again.
+
 [Link to notes file](notes.md)
