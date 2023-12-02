@@ -3,6 +3,7 @@ const app = express();
 const DB = require('./database');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
+const { sock_it } = require('./webSocket');
 
 // Don't change this without also changing the constant in database.js (I tried to link them but it didn't work [TODO: Try again])
 const NUM_GOALS_TO_DISPLAY = 'all';
@@ -89,7 +90,7 @@ apiRouter.get('/user/:email', async (req, res) => {
 });
 
 // secureApiRouter verifies credentials for endpoints
-var secureApiRouter = express.Router();
+const secureApiRouter = express.Router();
 apiRouter.use(secureApiRouter);
 
 secureApiRouter.use(async (req, res, next) => {
@@ -101,12 +102,6 @@ secureApiRouter.use(async (req, res, next) => {
     res.status(401).send({ msg: 'Unauthorized' });
   }
 });
-
-/*
-secureApiRouter.get('/verify', async (_req, res) => {
-  res.send({msg: 'user is legit'});
-})
-*/
 
 // Fetch the entire list of goals
 secureApiRouter.get(`/goals/:email`, async (_req, res) => {
@@ -145,6 +140,8 @@ function setAuthCookie(res, authToken) {
   });
 }
 
-app.listen(port, () => {
+const httpService = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+sock_it(httpService);
