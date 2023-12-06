@@ -15,6 +15,17 @@
 * AWS Cognito || Google Firebase (3rd party authorization services)
 
 # Raw Notes by Date and Topic
+## 12/06/23
+### Web Frameworks
+* Index.html -> main.jsx -> App.jsx
+### React
+* Has a router which allows for HTML (e.g. header and footer) to be duplicated between pages
+* It also allows for a single page application in which different 'pages' are displayed through pure DOM injection (although that's possible without react right?)
+#### JSX
+* Combines html and JS!
+* Requires a Babel preprocessor
+#### Components
+* ReactDOM.render(<>HTML<>, queryselector.DOM_element);
 ## 11/14/23
 ### Authorization Services
 * Generally monitored by storing a token on a person's computer in the form of a cookie
